@@ -1,0 +1,105 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+#sddm
+{
+	margin: 0;
+	padding: 0;
+	z-index: 30;
+	visibility: hidden;
+}
+
+#sddm li
+{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+	font: bold 11px arial;
+	/* [disabled]border: 1px solid #FFF; */
+	border-radius: 10px;
+	visibility: hidden;
+
+}
+
+#sddm li a
+{
+	display: block;
+	width: 50px;
+	background: #F30; /*#5970B2 */
+	color: #FFF;
+	text-align: center;
+	text-decoration: none;
+	margin-top: 0;
+	margin-right: 0;
+	margin-bottom: 0;
+	margin-left: 0px;
+	padding-top: 4px;
+	padding-right: 10px;
+	padding-bottom: 4px;
+	padding-left: 10px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: thin solid #000;
+	height: 20px;
+	line-height: 20px;
+	visibility: hidden;
+
+
+
+}
+
+#sddm li a:hover
+{
+	background: #C50;
+	visibility: hidden;
+} /*#49A3FF */
+
+#sddm div
+{
+	position: absolute;
+	visibility: hidden;
+	margin: 0;
+	padding: 0;
+	/* [disabled]background: #FFF; */ /*#EAEBD8*/
+	/* [disabled]border: 1px solid #F30; */  /*#5970B2*/
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+	#sddm div a
+	{
+	position: relative;
+	display: block;
+	margin: 0;
+	width: auto;
+	white-space: nowrap;
+	text-align: left;
+	text-decoration: none;
+	background: #FFF;
+	color:  #000;
+	left: 72px;
+	float: left;
+	top: -31px;
+	font-family: arial;
+	font-size: 11px;
+	line-height: 20px;
+	height: 20px;
+	padding-top: 5px;
+	padding-right: 10px;
+	/* [disabled]padding-bottom: 5px; */
+	/* [disabled]padding-left: 10px; */
+	visibility: hidden;
+}
+
+	#sddm div a:hover
+	{
+	background: #C50;
+	color: #FFF;
+	visibility: hidden;
+}
