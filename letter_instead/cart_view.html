@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+Made by: Haroon Khalid
+
+..######...#######..########.....###........######..########..##.....##.##....##..######..##.....##
+.##....##.##.....##.##.....##...##.##......##....##.##.....##.##.....##.###...##.##....##.##.....##
+.##.......##.....##.##.....##..##...##.....##.......##.....##.##.....##.####..##.##.......##.....##
+..######..##.....##.##.....##.##.....##....##.......########..##.....##.##.##.##.##.......#########
+.......##.##.....##.##.....##.#########....##.......##...##...##.....##.##..####.##.......##.....##
+.##....##.##.....##.##.....##.##.....##....##....##.##....##..##.....##.##...###.##....##.##.....##
+..######...#######..########..##.....##.....######..##.....##..#######..##....##..######..##.....##
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Instead</title>
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300,500,900,700italic,900italic,500italic,400italic,300italic,100,100italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
+    <script>
+    $(function() {
+
+        $(".mobile-menu i").click(function() {
+            $(".mobile-menu-nav").slideToggle();
+        });
+
+
+        $('#cart-sponsor-checkbox').change(function() {
+            if ($(this).is(":checked")) {
+                $(".cart-sponsored-letters-row").show();
+                $(".cart-sidebar-num-sponsor-container").show();
+            } else {
+                $(".cart-sponsored-letters-row").hide();
+                $(".cart-sidebar-num-sponsor-container").hide();
+            }
+        });
+
+        $(".cart-sidebar-sponsor-input").on("change keyup paste click", function() {
+            val = $(this).val();
+
+            if (val == "") {
+                $(".sponsored-letters-amt").text("0");
+
+            } else {
+                $(".sponsored-letters-amt").text($(this).val());
+
+            }
+        });
+
+        $(document.body).click(function(event) {
+            $(".cart-sponsor-info, .cart-payment-info").removeClass("open");
+            $(".cart-sponsor-info, .cart-payment-info").addClass("close");
+        });
+
+
+        $(document.body).on('click', '.cart-sponsor-info, .cart-payment-info', function(event) {
+            event.stopPropagation()
+        });
+
+        $(".cart-sidebar-sponsor i").click(function(event) {
+            event.stopPropagation();
+            if ($(this).parents(".cart-sidebar-sponsor-container").find(".cart-sponsor-info").hasClass("close")) {
+                $(".cart-sponsor-info, .cart-payment-info").removeClass("open");
+                $(".cart-sponsor-info, .cart-payment-info").addClass("close");
+                $(this).parents(".cart-sidebar-sponsor-container").find(".cart-sponsor-info").css({
+                    top: 30,
+                    left: 10
+                }).toggleClass("close open");
+            } else {
+                $(this).parents(".cart-sidebar-sponsor-container").find(".cart-sponsor-info").css({
+                    top: 30,
+                    left: 10
+                }).removeClass("open");
+                $(this).parents(".cart-sidebar-sponsor-container").find(".cart-sponsor-info").css({
+                    top: 30,
+                    left: 10
+                }).addClass("close");
+
+            }
+        });
+
+        $(".cart-sidebar-sponsor-text i").click(function(event) {
+            event.stopPropagation();
+            if ($(this).parents(".cart-sidebar-payment-container").find(".cart-payment-info").hasClass("close")) {
+                $(".cart-sponsor-info, .cart-payment-info").removeClass("open");
+                $(".cart-sponsor-info, .cart-payment-info").addClass("close");
+                $(this).parents(".cart-sidebar-payment-container").find(".cart-payment-info").css({
+                    top: 30,
+                    left: 10
+                }).toggleClass("close open");
+            } else {
+                $(this).parents(".cart-sidebar-payment-container").find(".cart-payment-info").css({
+                    top: 90,
+                    left: 10
+                }).removeClass("open");
+                $(this).parents(".cart-sidebar-payment-container").find(".cart-payment-info").css({
+                    top: 90,
+                    left: 10
+                }).addClass("close");
+
+            }
+        });
+
+        $(".cart-sponsor-info, .cart-payment-info").click(function() {
+            $(this).removeClass("open");
+            $(this).addClass("close");
+        });
+
+        $(".cart-sidebar-sponsor i").click(function(e) {
+            e.preventDefault();
+        });
+
+
+        $(".login-top-link, .m-m-login").click(function() {
+            $(".whitebg").show();
+            $(".mobile-menu-nav").slideToggle();
+            $(".login-window-container").show();
+        });
+
+        $(".login-window-content .fa-times").click(function() {
+            $(".whitebg, .login-window-container").hide();
+        });
+
+
+        $(".login-window-title i").click(function() {
+            $(".login-window-container").hide();
+        });
+
+        $(".whitebg").click(function() {
+            $(".whitebg").hide();
+            $(".login-window-container").hide();
+        });
+
+        $(".login-window-container").click(function(e) {
+            e.stopPropagation();
+            $(".whitebg").hide();
+            $(".login-window-container").hide();
+        });
+        $(".login-window-content").click(function(e) {
+            e.stopPropagation();
+        });
+
+    });
+    </script>
+</head>
+
+<body>
+    <div class="whitebg"></div>
+
+    <div class="mobile-menu mobile">
+        <div class="container ">
+            <div class="row">
+                <div class="col-xs-6 text-left">
+                    <a href="index.html"><img src="img/letter-instead-logo-notext.png" class="mobile-logo">
+                    </a>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <i class="fa fa-bars fa-2x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu-nav">
+            <div class="mobile-2">
+                <a href="#" class="mobile-menu-link mobile-1-link">Hot Topics</a>
+                <a href="#" class="mobile-menu-link-2 mobile-2-link">Compose a Letter</a>
+                <a href="#" class="mobile-menu-link mobile-3-link">Be a Sponsor</a>
+                <a href="#" class="mobile-menu-link-2 mobile-4-link">Tips & Tricks</a>
+                <a href="#" class="mobile-menu-link">Say What?!</a>
+                <a href="#" class="mobile-menu-link-2">Your Account</a>
+                <a href="#" class="mobile-menu-link">Full Site</a>
+                <a href="#" class="mobile-menu-link-2">Login</a>
+            </div>
+        </div>
+    </div>
+    <div class="container wrapper">
+        <div class="container-fluid desktop">
+            <div class="row">
+                <div class="col-xs-10 col-logo">
+                    <a href="index.html"><img src="img/letter-logo-header.png" class="logo letter-logo-header">
+                    </a>
+                    <img src="img/letter-instead-logo-header.png" class="logo">
+                </div>
+                <div class="col-xs-2 text-right col-sign-login">
+                    <a href="#" class="sign-up-top-link">Sign Up!</a>
+                    <a href="#" class="login-top-link">Login</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="nav-container">
+                    <ul>
+                        <li><a href="#">Hot Topics</a>
+                        </li>
+                        <li><a href="#">Compose a Letter</a>
+                        </li>
+                        <li><a href="#">Be a Sponsor</a>
+                        </li>
+                        <li><a href="#">Tips & Tricks</a>
+                        </li>
+                        <li><a href="#">Say What?</a>
+                        </li>
+                        <li class="cart"><a href="#"><i class="fa fa-lg fa-shopping-cart"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+                        <div class="login-window-container text-center">
+            <div class="login-window">
+                <div class="login-window-content">
+                    <i class="fa fa-times fa-lg mobile"></i>
+                    <p class="login-window-blue-btn"><i class="fa fa-facebook-official"></i> Login with Facebook</p>
+                    <p class="login-window-blue-btn">Create a New Account</p>
+                    <div class="input-group">
+                        <div class="input-group-addon login-input">Email</div>
+                        <input type="text" class="form-control" id="exampleInputAmount">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon login-input">Password</div>
+                        <input type="text" class="form-control" id="exampleInputAmount">
+                    </div>
+                    <p class="login-window-green-btn">Login</p>
+                </div>
+            </div>
+        </div>
+        <div class="letter-comp-container">
+            <div class="row">
+                <div class="col-xs-8 col-letter-comp">
+                    <p class="letter-comp-review-title green-background">Your cart</p>
+                    <div class="letter-comp-content">
+                        <div class="cart-desc-container">
+                            <div class="container-fluiid">
+                                <table class="cart-desc-table">
+                                    <colgroup>
+                                        <col class="col-xs-8">
+                                            <col class="col-xs-2">
+                                                <col class="col-xs-2">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr class="cart-table-header">
+                                            <td>
+                                                <p class="cart-desc-cat-left">Description</p>
+                                            </td>
+                                            <td>
+                                                <p class="cart-desc-cat-right"></p>
+                                            </td>
+                                            <td class="text-center">
+                                                <p class="cart-desc-cat-right">Price</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="cart-margin-top">
+                                            <td>
+                                            </td>
+                                            <td class="cart-col-left">
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p class="cart-title">We need to increase services to disabled vets.</p>
+                                            </td>
+                                            <td class="cart-col-left">
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p class="cart-desc-text bold-italic">Return address:</p>
+                                            </td>
+                                            <td class="cart-col-left">
+                                            </td>
+                                            <td class="">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p class="cart-desc-text">2014 Acorn Lane Dacula, GA 30019</p>
+                                            </td>
+                                            <td class="cart-col-left">
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p class="cart-desc-text bold-italic">Recipients:</p>
+                                            </td>
+                                            <td class="cart-col-left">
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p class="cart-desc-text">President Barrack Obama</p>
+                                            </td>
+                                            <td class="cart-col-left text-right">
+                                                <i class="fa fa-trash text-right"></i>
+                                            </td>
+                                            <td>
+                                                <p class="cart-free-text">free</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p class="cart-desc-text">Senator Saxby Chambliss</p>
+                                            </td>
+                                            <td class="cart-col-left text-right">
+                                                <i class="fa fa-trash"></i>
+                                            </td>
+                                            <td>
+                                                <p class="cart-price-text">1.99</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p class="cart-desc-text">Senator John Isakson</p>
+                                            </td>
+                                            <td class="cart-col-left text-right">
+                                                <i class="fa fa-trash"></i>
+                                            </td>
+                                            <td>
+                                                <p class="cart-price-text">1.99</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="cart-sponsored-letters-row">
+                                            <td>
+                                                <p class="cart-desc-text">Sponsored Letters (<span class="sponsored-letters-amt">0</span>)</p>
+                                            </td>
+                                            <td class="cart-col-left">
+                                            </td>
+                                            <td>
+                                                <p class="cart-price-text">19.99</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="cart-margin-top">
+                                            <td>
+                                            </td>
+                                            <td class="cart-col-left">
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="cart-details-left">
+                                                <p class="cart-details-text">Subtotal</p>
+                                            </td>
+                                            <td class="cart-details-right">
+                                                <p class="cart-details-text text-center">23.97</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="cart-details-left">
+                                                <p class="cart-details-text">Sales Tax</p>
+                                            </td>
+                                            <td class="cart-details-right">
+                                                <p class="cart-details-text text-center">0.00</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="cart-details-left">
+                                                <p class="cart-details-text">Total</p>
+                                            </td>
+                                            <td class="cart-details-right">
+                                                <p class="cart-details-text text-center">23.97</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-letter-sidebar">
+                    <a href="#" class="letter-comp-sidebar-btn-active sidebar-btn-no-margin">Sponsorship and Payment</a>
+                    <div class="letter-comp-sidebar-info">
+                        <div class="cart-sidebar-sponsor-container">
+                            <label for="cart-sponsor-checkbox" class="cart-sidebar-sponsor">
+                                <input type="checkbox" id="cart-sponsor-checkbox"> I want to sponsor this letter! <i class="fa fa-info-circle"></i></label>
+                            <div class="cart-sponsor-info close">
+                                <p class="cart-sponsor-info-text">When you sponsor this letter you allow others to send it for free!</p>
+                            </div>
+                        </div>
+                        <div class="cart-sidebar-num-sponsor-container">
+                            <p class="cart-sidebar-sponsor-text">Number of Letters I'd like to Sponsor</p>
+                            <input type="text" class="cart-sidebar-sponsor-input">
+                        </div>
+                        <div>
+                            <p class="cart-sidebar-sponsor-text">Can my letter be edited?</p>
+                            <select class="cart-sidebar-sponsor-edit">
+                                <option value="value1">YES</option>
+                                <option value="value2">NO</option>
+                            </select>
+                        </div>
+                        <div>
+                            <p class="cart-sidebar-sponsor-text">Who can people send the letter to?</p>
+                            <select class="cart-sidebar-sponsor-send">
+                                <option value="value1">Anyone</option>
+                                <option value="value1">Their representatives</option>
+                            </select>
+                        </div>
+                        <p class="cart-sidebar-payment">Payment Information</p>
+                        <div class="cart-sidebar-payment-container">
+                            <p class="cart-sidebar-sponsor-text">Card Type <i class="fa fa-info-circle"></i></p>
+                            <div class="cart-payment-info close">
+                                <p class="cart-payment-info-text">Content needed!</p>
+                            </div>
+                            <select class="cart-sidebar-sponsor-payment">
+                                <option value="value1">Choose One</option>
+                                <option value="value2">American Express</option>
+                                <option value="value2">Discover</option>
+                                <option value="value2">MasterCard</option>
+                                <option value="value2">Visa</option>
+                            </select>
+                        </div>
+                        <div>
+                            <p class="cart-sidebar-sponsor-text">Card Number</p>
+                            <input type="text" class="cart-sidebar-sponsor-cc" placeholder="Enter card number">
+                        </div>
+                        <p class="cart-sidebar-sponsor-text">Name as it appears on card</p>
+                        <input type="text" class="cart-sidebar-name" placeholder="Type name here">
+                        <p class="cart-sidebar-sponsor-billing-text">Billing Address:</p>
+                        <div>
+                            <label for="cart-same-checkbox" class="cart-sidebar-sponsor-text">
+                                <input type="checkbox" id="cart-same-checkbox"> Same as Return Address on Letter</label>
+                        </div>
+                        <div class="sidebar-add-address-container" style="display: block;">
+                            <div class="row gutter-5">
+                                <div class="col-xs-12 gutter-5">
+                                    <input type="text" class="sidebar-street" placeholder="Street">
+                                </div>
+                                <div class="col-xs-4 gutter-5 col-sidebar-city">
+                                    <input type="text" class="sidebar-city" placeholder="City">
+                                </div>
+                                <div class="col-xs-3 gutter-5 col-sidebar-state">
+                                    <select name="state">
+                                        <option value="" style="color: #ccc !important;" disabled selected>State</option>
+                                        <option value="AL">AL</option>
+                                        <option value="AK">AK</option>
+                                        <option value="AZ">AZ</option>
+                                        <option value="AR">AR</option>
+                                        <option value="CA">CA</option>
+                                        <option value="CO">CO</option>
+                                        <option value="CT">CT</option>
+                                        <option value="DE">DE</option>
+                                        <option value="DC">DC</option>
+                                        <option value="FL">FL</option>
+                                        <option value="GA">GA</option>
+                                        <option value="HI">HI</option>
+                                        <option value="ID">ID</option>
+                                        <option value="IL">IL</option>
+                                        <option value="IN">IN</option>
+                                        <option value="IA">IA</option>
+                                        <option value="KS">KS</option>
+                                        <option value="KY">KY</option>
+                                        <option value="LA">LA</option>
+                                        <option value="ME">ME</option>
+                                        <option value="MD">MD</option>
+                                        <option value="MA">MA</option>
+                                        <option value="MI">MI</option>
+                                        <option value="MN">MN</option>
+                                        <option value="MS">MS</option>
+                                        <option value="MO">MO</option>
+                                        <option value="MT">MT</option>
+                                        <option value="NE">NE</option>
+                                        <option value="NV">NV</option>
+                                        <option value="NH">NH</option>
+                                        <option value="NJ">NJ</option>
+                                        <option value="NM">NM</option>
+                                        <option value="NY">NY</option>
+                                        <option value="NC">NC</option>
+                                        <option value="ND">ND</option>
+                                        <option value="OH">OH</option>
+                                        <option value="OK">OK</option>
+                                        <option value="OR">OR</option>
+                                        <option value="PA">PA</option>
+                                        <option value="RI">RI</option>
+                                        <option value="SC">SC</option>
+                                        <option value="SD">SD</option>
+                                        <option value="TN">TN</option>
+                                        <option value="TX">TX</option>
+                                        <option value="UT">UT</option>
+                                        <option value="VT">VT</option>
+                                        <option value="VA">VA</option>
+                                        <option value="WA">WA</option>
+                                        <option value="WV">WV</option>
+                                        <option value="WI">WI</option>
+                                        <option value="WY">WY</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-5 gutter-5 col-sidebar-zip">
+                                    <input type="text" class="sidebar-zip" placeholder="Zip">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="cart-sidebar-sponsor-text">Expiration Date</p>
+                            <select class="cart-sidebar-sponsor-edit">
+                                <option value="" style="color: #ccc !important;" disabled selected>Month</option>
+                                <option value="value1">01</option>
+                                <option value="value2">02</option>
+                                <option value="value2">03</option>
+                                <option value="value2">04</option>
+                                <option value="value2">05</option>
+                                <option value="value2">06</option>
+                                <option value="value2">07</option>
+                                <option value="value2">08</option>
+                                <option value="value2">09</option>
+                                <option value="value2">10</option>
+                                <option value="value2">11</option>
+                            </select>
+                            <select class="cart-sidebar-sponsor-edit">
+                                <option value="" style="color: #ccc !important;" disabled selected>Year</option>
+                                <option value="value1">2020</option>
+                                <option value="value2">2019</option>
+                                <option value="value2">2018</option>
+                                <option value="value2">2017</option>
+                                <option value="value2">2016</option>
+                                <option value="value2">2015</option>
+                            </select>
+                        </div>
+                        <div>
+                            <p class="cart-sidebar-sponsor-text">Security Code</p>
+                            <input type="text" class="cart-sidebar-sponsor-cvn">
+                        </div>
+                        <label for="cart-terms-checkbox" class="cart-sidebar-sponsor-text">
+                            <input type="checkbox" id="cart-terms-checkbox"> I agree to the <span><a href="#" class="cart-terms">Terms and Conditions</a></span></label>
+                        <div class="text-center">
+                            <p class="sidebar-send-letter text-center">Send My Letter(s)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="blue-footer desktop"></div>
+        <div class="footer desktop">
+            <div class="row">
+                <div class="col-xs-2 footer-col">
+                    <a href="#" class="footer-link">Hot Topics</a>
+                    <a href="#" class="footer-link">Compose a Letter</a>
+                    <a href="#" class="footer-link">Become a Sponsor</a>
+                </div>
+                <div class="col-xs-2 footer-col">
+                    <a href="#" class="footer-link">Tips & Tricks</a>
+                    <a href="#" class="footer-link">Say What?</a>
+                </div>
+                <div class="col-xs-3 footer-col">
+                    <a href="#" class="footer-link">Terms and Conditions</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                </div>
+                <div class="col-xs-3 footer-col text-right">
+                    <p class="footer-connect">Connect with us!</p>
+                    <i class="fa fa-2x fa-facebook-square"></i><i class="fa fa-2x fa-twitter-square"></i><i class="fa fa-2x fa-linkedin-square"></i>
+                </div>
+                <div class="col-xs-2 footer-col text-right">
+                    <a href="index.html"><img src="img/letter-logo.png">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                © 2015 Letter Instead
+            </div>
+        </div>
+    </div>
+    <div class="container mobile-footer mobile text-center">
+        <a href="#" class="footer-link">Hot Topics</a>
+        <a href="#" class="footer-link">Compose a Letter</a>
+        <a href="#" class="footer-link">Become a Sponsor</a>
+        <a href="#" class="footer-link">Tips & Tricks</a>
+        <a href="#" class="footer-link">Say What?</a>
+        <a href="#" class="footer-link">Terms and Conditions</a>
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <p class="footer-connect">Connect with us!</p>
+        <i class="fa fa-2x fa-facebook-square"></i><i class="fa fa-2x fa-twitter-square"></i><i class="fa fa-2x fa-linkedin-square"></i>
+    </div>
+</body>
+
+</html>

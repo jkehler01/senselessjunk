@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+Made by: Haroon Khalid
+
+..######...#######..########.....###........######..########..##.....##.##....##..######..##.....##
+.##....##.##.....##.##.....##...##.##......##....##.##.....##.##.....##.###...##.##....##.##.....##
+.##.......##.....##.##.....##..##...##.....##.......##.....##.##.....##.####..##.##.......##.....##
+..######..##.....##.##.....##.##.....##....##.......########..##.....##.##.##.##.##.......#########
+.......##.##.....##.##.....##.#########....##.......##...##...##.....##.##..####.##.......##.....##
+.##....##.##.....##.##.....##.##.....##....##....##.##....##..##.....##.##...###.##....##.##.....##
+..######...#######..########..##.....##.....######..##.....##..#######..##....##..######..##.....##
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Instead</title>
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300,500,900,700italic,900italic,500italic,400italic,300italic,100,100italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
+    <script>
+    $(function() {
+
+        $(".mobile-menu i").click(function() {
+            $(".mobile-menu-nav").slideToggle();
+        });
+
+        $(".account-section-my-information .fa-pencil").click(function() {
+
+            $(this).hide();
+            $(".account-my-information-save, .account-my-information-cancel").show();
+
+            $(".account-section-my-information").find('.account-entry').each(function() {
+
+                entry = $(this).text();
+
+                if (entry == "Reset") {
+                    input_class = $(this).attr('class').split(' ')[1];
+                    input_class = '[data-name=' + input_class + ']';
+                    $(input_class).show();
+                    $(this).hide();
+
+                } else {
+                    input_class = $(this).attr('class').split(' ')[1];
+                    $("input." + input_class).val(entry);
+                    input_class = '[data-name=' + input_class + ']';
+                    $(input_class).val(entry).show();
+                    $(this).hide();
+                }
+
+            });
+
+        });
+
+        $(".account-my-information-save, .account-my-information-cancel").click(function() {
+            $(".account-section-my-information input, .account-section-my-information span").hide();
+            $(".account-section-my-information p, .account-section-my-information i").show();
+        });
+
+        $(".account-section-my-social-media .fa-pencil").click(function() {
+
+            $(this).hide();
+            $(".account-my-social-media-save, .account-my-social-media-cancel").show();
+
+            $(".account-section-my-social-media").find('.account-entry').each(function() {
+                entry = $(this).text();
+                input_class = $(this).attr('class').split(' ')[1];
+                $("input." + input_class).val(entry);
+                input_class = '[data-name=' + input_class + ']';
+                $(input_class).val(entry).show();
+                $(this).hide();
+            });
+
+        });
+
+        $(".account-my-social-media-save, .account-my-social-media-cancel").click(function() {
+            $(".account-section-my-social-media input, .account-section-my-social-media span").hide();
+            $(".account-section-my-social-media p, .account-section-my-social-media i").show();
+        });
+
+        $(".account-section-my-return-addresses .fa-pencil").click(function() {
+
+
+
+            $(this).hide();
+            $(".account-my-return-addresses-save, .account-my-return-addresses-cancel, .account-return-address-add").show();
+            $('[data-name="account-return-address-zip"]').css("width", "28%");
+            $('[data-name="account-return-address-zip"]').css("margin-left", "5px");
+
+            $(".account-return-addresses-container").find('.account-entry').each(function() {
+                entry = $(this).text();
+                input_class = $(this).attr('class').split(' ')[1];
+                $("input." + input_class).val(entry);
+                input_class = '[data-name=' + input_class + ']';
+                console.log(input_class);
+                $(this).parents(".account-return-addresses-container").find(".account-return-address-input-container").children(input_class).val(entry).show();
+                $(this).parents(".account-return-addresses-container").find(".account-return-address-input-container").children(".fa-trash").show();
+                $(this).hide();
+            });
+
+        });
+
+        $(".account-my-return-addresses-save, .account-my-return-addresses-cancel").click(function() {
+            $(this).hide();
+            $(".account-section-my-return-addresses input,.account-section-my-return-addresses select,  .account-section-my-return-addresses span, .fa-trash, .account-return-address-add, .account-return-address-add-container").hide();
+            $(".account-section-my-return-addresses p, .account-return-addresses-container .account-entry, .account-section-my-return-addresses .fa-pencil").show();
+        });
+
+        $(".account-return-address-add").click(function() {
+            $(this).hide();
+            $(".account-return-address-add-container").children().css("display", "inline-block");
+            $(".account-return-address-add-container").show();
+        });
+
+
+        $(".login-top-link, .m-m-login").click(function() {
+            $(".whitebg").show();
+            $(".mobile-menu-nav").slideToggle();
+            $(".login-window-container").show();
+        });
+
+        $(".login-window-content .fa-times").click(function() {
+            $(".whitebg, .login-window-container").hide();
+        });
+
+
+        $(".login-window-title i").click(function() {
+            $(".login-window-container").hide();
+        });
+
+        $(".whitebg").click(function() {
+            $(".whitebg").hide();
+            $(".login-window-container").hide();
+        });
+
+        $(".login-window-container").click(function(e) {
+            e.stopPropagation();
+            $(".whitebg").hide();
+            $(".login-window-container").hide();
+        });
+        $(".login-window-content").click(function(e) {
+            e.stopPropagation();
+        });
+
+    });
+    </script>
+</head>
+
+<body>
+    <div class="whitebg"></div>
+
+    <div class="mobile-menu mobile">
+        <div class="container ">
+            <div class="row">
+                <div class="col-xs-6 text-left">
+                    <a href="index.html"><img src="img/letter-instead-logo-notext.png" class="mobile-logo">
+                    </a>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <i class="fa fa-bars fa-2x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu-nav">
+            <div class="mobile-2">
+                <a href="#" class="mobile-menu-link mobile-1-link">Hot Topics</a>
+                <a href="#" class="mobile-menu-link-2 mobile-2-link">Compose a Letter</a>
+                <a href="#" class="mobile-menu-link mobile-3-link">Be a Sponsor</a>
+                <a href="#" class="mobile-menu-link-2 mobile-4-link">Tips & Tricks</a>
+                <a href="#" class="mobile-menu-link">Say What?!</a>
+                <a href="#" class="mobile-menu-link-2">Your Account</a>
+                <a href="#" class="mobile-menu-link">Full Site</a>
+                <a href="#" class="mobile-menu-link-2">Login</a>
+            </div>
+        </div>
+    </div>
+    <div class="container wrapper">
+        <div class="container-fluid desktop">
+            <div class="row">
+                <div class="col-xs-10 col-logo">
+                    <a href="index.html"><img src="img/letter-logo-header.png" class="logo letter-logo-header">
+                    </a>
+                    <img src="img/letter-instead-logo-header.png" class="logo">
+                </div>
+                <div class="col-xs-2 text-right col-sign-login">
+                    <a href="#" class="sign-up-top-link">Sign Up!</a>
+                    <a href="#" class="login-top-link">Login</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="nav-container">
+                    <ul>
+                        <li><a href="#">Hot Topics</a>
+                        </li>
+                        <li><a href="#">Compose a Letter</a>
+                        </li>
+                        <li><a href="#">Be a Sponsor</a>
+                        </li>
+                        <li><a href="#">Tips & Tricks</a>
+                        </li>
+                        <li><a href="#">Say What?</a>
+                        </li>
+                        <li class="cart"><a href="#"><i class="fa fa-lg fa-shopping-cart"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+                        <div class="login-window-container text-center">
+            <div class="login-window">
+                <div class="login-window-content">
+                    <i class="fa fa-times fa-lg mobile"></i>
+                    <p class="login-window-blue-btn"><i class="fa fa-facebook-official"></i> Login with Facebook</p>
+                    <p class="login-window-blue-btn">Create a New Account</p>
+                    <div class="input-group">
+                        <div class="input-group-addon login-input">Email</div>
+                        <input type="text" class="form-control" id="exampleInputAmount">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon login-input">Password</div>
+                        <input type="text" class="form-control" id="exampleInputAmount">
+                    </div>
+                    <p class="login-window-green-btn">Login</p>
+                </div>
+            </div>
+        </div>
+        <div class="letter-comp-container">
+            <div class="row">
+                <div class="col-xs-8 col-letter-comp">
+                    <p class="history-container-title">My Account</p>
+                    <div class="account-content-container" style="margin-top:35px;">
+                        <div class="account-section-container account-section-my-information">
+                            <p class="account-title">My Information <i class="fa fa-pencil"></i><span class="account-my-information-save">save</span><span class="account-my-information-cancel">Cancel</span></p>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <p class="account-cat">Display Name</p>
+                                </div>
+                                <div class="col-xs-9">
+                                    <p class="account-entry account-display-name">berryberrybright</p>
+                                    <input type="text" data-name="account-display-name">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <p class="account-cat">Legal Name</p>
+                                </div>
+                                <div class="col-xs-9">
+                                    <p class="account-entry account-legal-name">William Berryhill</p>
+                                    <input type="text" data-name="account-legal-name">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <p class="account-cat">Email</p>
+                                </div>
+                                <div class="col-xs-9">
+                                    <p class="account-entry account-email">youremail@email.com</p>
+                                    <input type="text" data-name="account-email">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <p class="account-cat">Password</p>
+                                </div>
+                                <div class="col-xs-9">
+                                    <p class="account-entry account-password">Reset</p>
+                                    <input type="text" data-name="account-password" placeholder="Current Password">
+                                    <input type="text" data-name="account-password" placeholder="New Password">
+                                    <input type="text" data-name="account-password" placeholder="Retype Password">
+                                </div>
+                            </div>
+                        </div>
+                        <!--                         <div class="account-section-container account-section-my-social-media">
+                            <p class="account-title">My Social Media <i class="fa fa-pencil"></i><span class="account-my-social-media-save">save</span><span class="account-my-social-media-cancel">Cancel</span></p>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <p class="account-cat">Facebook</p>
+                                </div>
+                                <div class="col-xs-9">
+                                    <p class="account-entry account-facebook">www.facebook.com/berryshill</p>
+                                    <input type="text" data-name="account-facebook">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <p class="account-cat">Twitter</p>
+                                </div>
+                                <div class="col-xs-9">
+                                    <p class="account-entry account-twitter">@berryshill</p>
+                                    <input type="text" data-name="account-twitter">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <p class="account-cat">LinkedIn</p>
+                                </div>
+                                <div class="col-xs-9">
+                                    <p class="account-entry account-linked-in">www.linkedin.com/berryhill_william0123</p>
+                                    <input type="text" data-name="account-linked-in">
+                                </div>
+                            </div>
+                        </div> -->
+
+                    </div>
+                    <div style="background:white;padding:35px; margin: 35px 0;">
+                        <div class="account-section-container account-section-my-social-media">
+                            <p class="account-title">My Social Media <i class="fa fa-pencil"></i><span class="account-my-social-media-save">save</span><span class="account-my-social-media-cancel">Cancel</span></p>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <p class="account-cat">Facebook</p>
+                                </div>
+                                <div class="col-xs-9">
+                                    <p class="account-entry account-facebook">www.facebook.com/berryshill</p>
+                                    <input type="text" data-name="account-facebook">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <p class="account-cat">Twitter</p>
+                                </div>
+                                <div class="col-xs-9">
+                                    <p class="account-entry account-twitter">@berryshill</p>
+                                    <input type="text" data-name="account-twitter">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <p class="account-cat">LinkedIn</p>
+                                </div>
+                                <div class="col-xs-9">
+                                    <p class="account-entry account-linked-in">www.linkedin.com/berryhill_william0123</p>
+                                    <input type="text" data-name="account-linked-in">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background:white;padding:35px; margin: 35px 0;">
+                                                <div class="account-section-my-return-addresses">
+                            <p class="account-title">My Return Addresses <i class="fa fa-pencil"></i><span class="account-my-return-addresses-save">save</span><span class="account-my-return-addresses-cancel">Cancel</span></p>
+                            <div class="account-return-addresses-container">
+                                <p class="account-entry account-return-address-nickname">Home</p>
+                                <p class="account-entry account-return-address"><span class="account-entry account-return-address-street">2014 Acorn Lane</span>
+                                    <br><span class="account-entry account-return-address-city">Dacula</span>,<span class="account-entry account-return-address-state"><span class="account-entry account-return-address-state">GA</span><span class="account-entry account-return-address-zip">30019</span></p>
+                                <div class="account-return-address-input-container">
+                                    <input class="account-return-address-nickname-input" placeholder="Nickname" data-name="account-return-address-nickname"> <i class="fa fa-lg fa-trash"></i>
+                                    <input class="account-return-address-street-input" placeholder="Street" data-name="account-return-address-street">
+                                    <input class="account-return-address-bottom-input" placeholder="City" data-name="account-return-address-city">
+                                    <select name="state" class="account-return-address-state" data-name="account-return-address-state">
+                                        <option value="AL">AL</option>
+                                        <option value="AK">AK</option>
+                                        <option value="AZ">AZ</option>
+                                        <option value="AR">AR</option>
+                                        <option value="CA">CA</option>
+                                        <option value="CO">CO</option>
+                                        <option value="CT">CT</option>
+                                        <option value="DE">DE</option>
+                                        <option value="DC">DC</option>
+                                        <option value="FL">FL</option>
+                                        <option value="GA">GA</option>
+                                        <option value="HI">HI</option>
+                                        <option value="ID">ID</option>
+                                        <option value="IL">IL</option>
+                                        <option value="IN">IN</option>
+                                        <option value="IA">IA</option>
+                                        <option value="KS">KS</option>
+                                        <option value="KY">KY</option>
+                                        <option value="LA">LA</option>
+                                        <option value="ME">ME</option>
+                                        <option value="MD">MD</option>
+                                        <option value="MA">MA</option>
+                                        <option value="MI">MI</option>
+                                        <option value="MN">MN</option>
+                                        <option value="MS">MS</option>
+                                        <option value="MO">MO</option>
+                                        <option value="MT">MT</option>
+                                        <option value="NE">NE</option>
+                                        <option value="NV">NV</option>
+                                        <option value="NH">NH</option>
+                                        <option value="NJ">NJ</option>
+                                        <option value="NM">NM</option>
+                                        <option value="NY">NY</option>
+                                        <option value="NC">NC</option>
+                                        <option value="ND">ND</option>
+                                        <option value="OH">OH</option>
+                                        <option value="OK">OK</option>
+                                        <option value="OR">OR</option>
+                                        <option value="PA">PA</option>
+                                        <option value="RI">RI</option>
+                                        <option value="SC">SC</option>
+                                        <option value="SD">SD</option>
+                                        <option value="TN">TN</option>
+                                        <option value="TX">TX</option>
+                                        <option value="UT">UT</option>
+                                        <option value="VT">VT</option>
+                                        <option value="VA">VA</option>
+                                        <option value="WA">WA</option>
+                                        <option value="WV">WV</option>
+                                        <option value="WI">WI</option>
+                                        <option value="WY">WY</option>
+                                    </select>
+                                    <input class="account-return-address-bottom-input" placeholder="Zip" data-name="account-return-address-zip">
+                                </div>
+                            </div>
+                            <div class="account-return-addresses-container">
+                                <p class="account-entry account-return-address-nickname">Work</p>
+                                <p class="account-entry account-return-address"><span class="account-entry account-return-address-street">2014 Street Lane </span>
+                                    <br><span class="account-entry account-return-address-city">Norcross</span>,<span class="account-entry account-return-address-state">GA</span><span class="account-entry account-return-address-zip">30093</span></p>
+                                <div class="account-return-address-input-container">
+                                    <input class="account-return-address-nickname-input" placeholder="Nickname" data-name="account-return-address-nickname">
+                                    <i class="fa fa-lg fa-trash"></i>
+                                    <input class="account-return-address-street-input" placeholder="Street" data-name="account-return-address-street">
+                                    <input class="account-return-address-bottom-input" placeholder="City" data-name="account-return-address-city">
+                                    <select name="state" class="account-return-address-state" data-name="account-return-address-state">
+                                        <option value="AL">AL</option>
+                                        <option value="AK">AK</option>
+                                        <option value="AZ">AZ</option>
+                                        <option value="AR">AR</option>
+                                        <option value="CA">CA</option>
+                                        <option value="CO">CO</option>
+                                        <option value="CT">CT</option>
+                                        <option value="DE">DE</option>
+                                        <option value="DC">DC</option>
+                                        <option value="FL">FL</option>
+                                        <option value="GA">GA</option>
+                                        <option value="HI">HI</option>
+                                        <option value="ID">ID</option>
+                                        <option value="IL">IL</option>
+                                        <option value="IN">IN</option>
+                                        <option value="IA">IA</option>
+                                        <option value="KS">KS</option>
+                                        <option value="KY">KY</option>
+                                        <option value="LA">LA</option>
+                                        <option value="ME">ME</option>
+                                        <option value="MD">MD</option>
+                                        <option value="MA">MA</option>
+                                        <option value="MI">MI</option>
+                                        <option value="MN">MN</option>
+                                        <option value="MS">MS</option>
+                                        <option value="MO">MO</option>
+                                        <option value="MT">MT</option>
+                                        <option value="NE">NE</option>
+                                        <option value="NV">NV</option>
+                                        <option value="NH">NH</option>
+                                        <option value="NJ">NJ</option>
+                                        <option value="NM">NM</option>
+                                        <option value="NY">NY</option>
+                                        <option value="NC">NC</option>
+                                        <option value="ND">ND</option>
+                                        <option value="OH">OH</option>
+                                        <option value="OK">OK</option>
+                                        <option value="OR">OR</option>
+                                        <option value="PA">PA</option>
+                                        <option value="RI">RI</option>
+                                        <option value="SC">SC</option>
+                                        <option value="SD">SD</option>
+                                        <option value="TN">TN</option>
+                                        <option value="TX">TX</option>
+                                        <option value="UT">UT</option>
+                                        <option value="VT">VT</option>
+                                        <option value="VA">VA</option>
+                                        <option value="WA">WA</option>
+                                        <option value="WV">WV</option>
+                                        <option value="WI">WI</option>
+                                        <option value="WY">WY</option>
+                                    </select>
+                                    <input class="account-return-address-bottom-input" placeholder="Zip" data-name="account-return-address-zip">
+                                </div>
+                            </div>
+                            <div class="account-return-addresses-container">
+                                <p class="account-entry account-return-address-nickname">Beach</p>
+                                <p class="account-entry account-return-address"><span class="account-entry account-return-address-street">182 Spring Court</span>
+                                    <br><span class="account-entry account-return-address-city">Dacula</span>,<span class="account-entry account-return-address-state">GA</span><span class="account-entry account-return-address-zip">30029</span></p>
+                                <div class="account-return-address-input-container">
+                                    <input class="account-return-address-nickname-input" placeholder="Nickname" data-name="account-return-address-nickname">
+                                    <i class="fa fa-lg fa-trash"></i>
+                                    <input class="account-return-address-street-input" placeholder="Street" data-name="account-return-address-street">
+                                    <input class="account-return-address-bottom-input" placeholder="City" data-name="account-return-address-city">
+                                    <select name="state" class="account-return-address-state" data-name="account-return-address-state">
+                                        <option value="AL">AL</option>
+                                        <option value="AK">AK</option>
+                                        <option value="AZ">AZ</option>
+                                        <option value="AR">AR</option>
+                                        <option value="CA">CA</option>
+                                        <option value="CO">CO</option>
+                                        <option value="CT">CT</option>
+                                        <option value="DE">DE</option>
+                                        <option value="DC">DC</option>
+                                        <option value="FL">FL</option>
+                                        <option value="GA">GA</option>
+                                        <option value="HI">HI</option>
+                                        <option value="ID">ID</option>
+                                        <option value="IL">IL</option>
+                                        <option value="IN">IN</option>
+                                        <option value="IA">IA</option>
+                                        <option value="KS">KS</option>
+                                        <option value="KY">KY</option>
+                                        <option value="LA">LA</option>
+                                        <option value="ME">ME</option>
+                                        <option value="MD">MD</option>
+                                        <option value="MA">MA</option>
+                                        <option value="MI">MI</option>
+                                        <option value="MN">MN</option>
+                                        <option value="MS">MS</option>
+                                        <option value="MO">MO</option>
+                                        <option value="MT">MT</option>
+                                        <option value="NE">NE</option>
+                                        <option value="NV">NV</option>
+                                        <option value="NH">NH</option>
+                                        <option value="NJ">NJ</option>
+                                        <option value="NM">NM</option>
+                                        <option value="NY">NY</option>
+                                        <option value="NC">NC</option>
+                                        <option value="ND">ND</option>
+                                        <option value="OH">OH</option>
+                                        <option value="OK">OK</option>
+                                        <option value="OR">OR</option>
+                                        <option value="PA">PA</option>
+                                        <option value="RI">RI</option>
+                                        <option value="SC">SC</option>
+                                        <option value="SD">SD</option>
+                                        <option value="TN">TN</option>
+                                        <option value="TX">TX</option>
+                                        <option value="UT">UT</option>
+                                        <option value="VT">VT</option>
+                                        <option value="VA">VA</option>
+                                        <option value="WA">WA</option>
+                                        <option value="WV">WV</option>
+                                        <option value="WI">WI</option>
+                                        <option value="WY">WY</option>
+                                    </select>
+                                    <input class="account-return-address-bottom-input" placeholder="Zip" data-name="account-return-address-zip">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="account-return-address-add">Add a new return address</p>
+                        <div class="account-return-address-input-container account-return-address-add-container">
+                            <input class="account-return-address-nickname-input" placeholder="Nickname" data-name="account-return-address-nickname">
+                            <input class="account-return-address-street-input" placeholder="Street" data-name="account-return-address-street">
+                            <input class="account-return-address-bottom-input" placeholder="City" data-name="account-return-address-city">
+                            <select name="state" class="account-return-address-state" data-name="account-return-address-state">
+                                <option value="AL">AL</option>
+                                <option value="AK">AK</option>
+                                <option value="AZ">AZ</option>
+                                <option value="AR">AR</option>
+                                <option value="CA">CA</option>
+                                <option value="CO">CO</option>
+                                <option value="CT">CT</option>
+                                <option value="DE">DE</option>
+                                <option value="DC">DC</option>
+                                <option value="FL">FL</option>
+                                <option value="GA">GA</option>
+                                <option value="HI">HI</option>
+                                <option value="ID">ID</option>
+                                <option value="IL">IL</option>
+                                <option value="IN">IN</option>
+                                <option value="IA">IA</option>
+                                <option value="KS">KS</option>
+                                <option value="KY">KY</option>
+                                <option value="LA">LA</option>
+                                <option value="ME">ME</option>
+                                <option value="MD">MD</option>
+                                <option value="MA">MA</option>
+                                <option value="MI">MI</option>
+                                <option value="MN">MN</option>
+                                <option value="MS">MS</option>
+                                <option value="MO">MO</option>
+                                <option value="MT">MT</option>
+                                <option value="NE">NE</option>
+                                <option value="NV">NV</option>
+                                <option value="NH">NH</option>
+                                <option value="NJ">NJ</option>
+                                <option value="NM">NM</option>
+                                <option value="NY">NY</option>
+                                <option value="NC">NC</option>
+                                <option value="ND">ND</option>
+                                <option value="OH">OH</option>
+                                <option value="OK">OK</option>
+                                <option value="OR">OR</option>
+                                <option value="PA">PA</option>
+                                <option value="RI">RI</option>
+                                <option value="SC">SC</option>
+                                <option value="SD">SD</option>
+                                <option value="TN">TN</option>
+                                <option value="TX">TX</option>
+                                <option value="UT">UT</option>
+                                <option value="VT">VT</option>
+                                <option value="VA">VA</option>
+                                <option value="WA">WA</option>
+                                <option value="WV">WV</option>
+                                <option value="WI">WI</option>
+                                <option value="WY">WY</option>
+                            </select>
+                            <input class="account-return-address-bottom-input account-return-address-zip-add" placeholder="Zip" data-name="account-return-address-zip">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-letter-sidebar">
+                    <div class="history-sidebar-blue"></div>
+                    <div class="history-sidebar-info">
+                        <p class="history-sidebar-logged">You are logged in as</p>
+                        <p class="history-sidebar-user">William Berryhill</p>
+                        <a href="#" class="history-sidebar-logout">Logout</a>
+                        <a href="#" class="history-sidebar-account history-sidebar-option-active">Account Information</a>
+                        <p class="history-sidebar-account-sub">Email, Return Address, Password, Social Media Accounts</p>
+                        <a href="#" class="history-sidebar-option">Letter History</a>
+                        <a href="#" class="history-sidebar-option">Address Book</a>
+                        <a href="#" class="history-sidebar-option">View Public Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="blue-footer desktop"></div>
+        <div class="footer desktop">
+            <div class="row">
+                <div class="col-xs-2 footer-col">
+                    <a href="#" class="footer-link">Hot Topics</a>
+                    <a href="#" class="footer-link">Compose a Letter</a>
+                    <a href="#" class="footer-link">Become a Sponsor</a>
+                </div>
+                <div class="col-xs-2 footer-col">
+                    <a href="#" class="footer-link">Tips & Tricks</a>
+                    <a href="#" class="footer-link">Say What?</a>
+                </div>
+                <div class="col-xs-3 footer-col">
+                    <a href="#" class="footer-link">Terms and Conditions</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                </div>
+                <div class="col-xs-3 footer-col text-right">
+                    <p class="footer-connect">Connect with us!</p>
+                    <i class="fa fa-2x fa-facebook-square"></i><i class="fa fa-2x fa-twitter-square"></i><i class="fa fa-2x fa-linkedin-square"></i>
+                </div>
+                <div class="col-xs-2 footer-col text-right">
+                    <a href="index.html"><img src="img/letter-logo.png">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                © 2015 Letter Instead
+            </div>
+        </div>
+    </div>
+    <div class="container mobile-footer mobile text-center">
+        <a href="#" class="footer-link">Hot Topics</a>
+        <a href="#" class="footer-link">Compose a Letter</a>
+        <a href="#" class="footer-link">Become a Sponsor</a>
+        <a href="#" class="footer-link">Tips & Tricks</a>
+        <a href="#" class="footer-link">Say What?</a>
+        <a href="#" class="footer-link">Terms and Conditions</a>
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <p class="footer-connect">Connect with us!</p>
+        <i class="fa fa-2x fa-facebook-square"></i><i class="fa fa-2x fa-twitter-square"></i><i class="fa fa-2x fa-linkedin-square"></i>
+    </div>
+</body>
+
+</html>

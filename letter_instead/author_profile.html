@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+Made by: Haroon Khalid
+
+..######...#######..########.....###........######..########..##.....##.##....##..######..##.....##
+.##....##.##.....##.##.....##...##.##......##....##.##.....##.##.....##.###...##.##....##.##.....##
+.##.......##.....##.##.....##..##...##.....##.......##.....##.##.....##.####..##.##.......##.....##
+..######..##.....##.##.....##.##.....##....##.......########..##.....##.##.##.##.##.......#########
+.......##.##.....##.##.....##.#########....##.......##...##...##.....##.##..####.##.......##.....##
+.##....##.##.....##.##.....##.##.....##....##....##.##....##..##.....##.##...###.##....##.##.....##
+..######...#######..########..##.....##.....######..##.....##..#######..##....##..######..##.....##
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Instead</title>
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300,500,900,700italic,900italic,500italic,400italic,300italic,100,100italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
+    <script>
+    $(function() {
+
+        $(".mobile-menu i").click(function() {
+            $(".mobile-menu-nav").slideToggle();
+        });
+
+        $(document.body).click(function(event) {
+            $(".author-profile-info").removeClass("open");
+            $(".author-profile-info").addClass("close");
+        });
+
+
+        $(document.body).on('click', '.author-profile-info', function(event) {
+            event.stopPropagation()
+        });
+
+        $(".author-profile-name i").click(function(event) {
+            event.stopPropagation();
+            if ($(this).parents(".author-profile-container").find(".author-profile-info").hasClass("close")) {
+                $(".author-profile-infoo").removeClass("open");
+                $(".author-profile-info").addClass("close");
+                $(this).parents(".author-profile-container").find(".author-profile-info").css({
+                    top: 80,
+                    left: 0
+                }).toggleClass("close open");
+            } else {
+                $(this).parents(".author-profile-container").find(".author-profile-info").css({
+                    top: 80,
+                    left: 0
+                }).removeClass("open");
+                $(this).parents(".author-profile-container").find(".author-profile-info").css({
+                    top: 80,
+                    left: 0
+                }).addClass("close");
+
+            }
+        });
+
+        $(".author-profile-info").click(function() {
+            $(this).removeClass("open");
+            $(this).addClass("close");
+        });
+
+
+        $(".history-date i").click(function() {
+            $(this).toggleClass("fa-eye fa-eye-slash");
+        });
+
+                $(".login-top-link, .m-m-login").click(function() {
+            $(".whitebg").show();
+            $(".mobile-menu-nav").slideToggle();
+            $(".login-window-container").show();
+        });
+
+        $(".login-window-content .fa-times").click(function() {
+            $(".whitebg, .login-window-container").hide();
+        });
+
+
+        $(".login-window-title i").click(function() {
+            $(".login-window-container").hide();
+        });
+
+        $(".whitebg").click(function() {
+            $(".whitebg").hide();
+            $(".login-window-container").hide();
+        });
+
+        $(".login-window-container").click(function(e) {
+            e.stopPropagation();
+            $(".whitebg").hide();
+            $(".login-window-container").hide();
+        });
+        $(".login-window-content").click(function(e) {
+            e.stopPropagation();
+        });
+
+    });
+    </script>
+</head>
+
+<body>
+    <div class="whitebg"></div>
+
+    <div class="mobile-menu mobile">
+        <div class="container ">
+            <div class="row">
+                <div class="col-xs-6 text-left">
+                    <a href="index.html"><img src="img/letter-instead-logo-notext.png" class="mobile-logo">
+                    </a>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <i class="fa fa-bars fa-2x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu-nav">
+            <div class="mobile-2">
+                <a href="#" class="mobile-menu-link mobile-1-link">Hot Topics</a>
+                <a href="#" class="mobile-menu-link-2 mobile-2-link">Compose a Letter</a>
+                <a href="#" class="mobile-menu-link mobile-3-link">Be a Sponsor</a>
+                <a href="#" class="mobile-menu-link-2 mobile-4-link">Tips & Tricks</a>
+                <a href="#" class="mobile-menu-link">Say What?!</a>
+                <a href="#" class="mobile-menu-link-2">Your Account</a>
+                <a href="#" class="mobile-menu-link">Full Site</a>
+                <a href="#" class="mobile-menu-link-2">Login</a>
+            </div>
+        </div>
+    </div>
+    <div class="container wrapper">
+        <div class="container-fluid desktop">
+            <div class="row">
+                <div class="col-xs-10 col-logo">
+                    <a href="index.html"><img src="img/letter-logo-header.png" class="logo letter-logo-header">
+                    </a>
+                    <img src="img/letter-instead-logo-header.png" class="logo">
+                </div>
+                <div class="col-xs-2 text-right col-sign-login">
+                    <a href="#" class="sign-up-top-link">Sign Up!</a>
+                    <a href="#" class="login-top-link">Login</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="nav-container">
+                    <ul>
+                        <li><a href="#">Hot Topics</a>
+                        </li>
+                        <li><a href="#">Compose a Letter</a>
+                        </li>
+                        <li><a href="#">Be a Sponsor</a>
+                        </li>
+                        <li><a href="#">Tips & Tricks</a>
+                        </li>
+                        <li><a href="#">Say What?</a>
+                        </li>
+                        <li class="cart"><a href="#"><i class="fa fa-lg fa-shopping-cart"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+                        <div class="login-window-container text-center">
+            <div class="login-window">
+                <div class="login-window-content">
+                    <i class="fa fa-times fa-lg mobile"></i>
+                    <p class="login-window-blue-btn"><i class="fa fa-facebook-official"></i> Login with Facebook</p>
+                    <p class="login-window-blue-btn">Create a New Account</p>
+                    <div class="input-group">
+                        <div class="input-group-addon login-input">Email</div>
+                        <input type="text" class="form-control" id="exampleInputAmount">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon login-input">Password</div>
+                        <input type="text" class="form-control" id="exampleInputAmount">
+                    </div>
+                    <p class="login-window-green-btn">Login</p>
+                </div>
+            </div>
+        </div>
+        <div class="letter-comp-container">
+            <div class="row">
+                <div class="col-xs-8 col-letter-comp">
+                    <p class="history-container-title">My Public Profile</p>
+                    <div class="account-content-container" style="margin-top:35px;">
+                        <div class="account-section-container account-section-my-information">
+                            <p class="account-entry">Below you will find the information site visitors will see when they click on your name on a public letter that you sent.</p>
+                        </div>
+                    </div>
+                    <div style="background:white;padding:35px; margin: 35px 0;">
+                        <div class="author-profile-container">
+                            <p class="account-title">Profile Name</p>
+                            <p class="account-entry author-profile-name">Betamix <i class="fa fa-heart"></i></p>
+                            <div class="author-profile-info cart-sponsor-info close">
+                                <p class="cart-sponsor-info-text">Like this author?
+                                    <br>Click the heart to add this author to your favorites.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background:white;padding:35px; margin: 35px 0;">
+                        <div class="account-section-container account-section-my-social-media">
+                            <p class="account-title">Location</p>
+                            <p class="account-entry">Manassass, VA</p>
+                        </div>
+                    </div>
+                    <div style="background:white;padding:35px; margin: 35px 0;">
+                        <div class="account-section-container account-section-my-social-media">
+                            <p class="account-title">Letters Sent</p>
+                            <div class="history-content-container" style="padding: 0;">
+                                <div class="container-fluid history-section-container">
+                                    <div class="row">
+                                        <div class="col-xs-2">
+                                            <p class="history-date"><i class="fa fa-fw fa-lg fa-eye"></i> June 14</p>
+                                        </div>
+                                        <div class="col-xs-10 history-letter-title-col">
+                                            <a href="#" class="history-letter-title">Do not regulate electronic cigarettes the same as tobacco</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-2">
+                                            <p class="history-date"><i class="fa fa-fw fa-lg fa-eye-slash"></i> June 7</p>
+                                        </div>
+                                        <div class="col-xs-10 history-letter-title-col">
+                                            <p class="history-letter-title">Stop lobbyists on capitol hill</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-letter-sidebar">
+                    <div class="history-sidebar-blue"></div>
+                    <div class="history-sidebar-info">
+                        <p class="history-sidebar-logged">You are logged in as</p>
+                        <p class="history-sidebar-user">William Berryhill</p>
+                        <a href="#" class="history-sidebar-logout">Logout</a>
+                        <a href="#" class="history-sidebar-account">Account Information</a>
+                        <p class="history-sidebar-account-sub">Email, Return Address, Password, Social Media Accounts</p>
+                        <a href="#" class="history-sidebar-option">Letter History</a>
+                        <a href="#" class="history-sidebar-option">Address Book</a>
+                        <a href="#" class="history-sidebar-option history-sidebar-option-active">View Public Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="blue-footer desktop"></div>
+        <div class="footer desktop">
+            <div class="row">
+                <div class="col-xs-2 footer-col">
+                    <a href="#" class="footer-link">Hot Topics</a>
+                    <a href="#" class="footer-link">Compose a Letter</a>
+                    <a href="#" class="footer-link">Become a Sponsor</a>
+                </div>
+                <div class="col-xs-2 footer-col">
+                    <a href="#" class="footer-link">Tips & Tricks</a>
+                    <a href="#" class="footer-link">Say What?</a>
+                </div>
+                <div class="col-xs-3 footer-col">
+                    <a href="#" class="footer-link">Terms and Conditions</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                </div>
+                <div class="col-xs-3 footer-col text-right">
+                    <p class="footer-connect">Connect with us!</p>
+                    <i class="fa fa-2x fa-facebook-square"></i><i class="fa fa-2x fa-twitter-square"></i><i class="fa fa-2x fa-linkedin-square"></i>
+                </div>
+                <div class="col-xs-2 footer-col text-right">
+                    <a href="index.html"><img src="img/letter-logo.png">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                © 2015 Letter Instead
+            </div>
+        </div>
+    </div>
+    <div class="container mobile-footer mobile text-center">
+        <a href="#" class="footer-link">Hot Topics</a>
+        <a href="#" class="footer-link">Compose a Letter</a>
+        <a href="#" class="footer-link">Become a Sponsor</a>
+        <a href="#" class="footer-link">Tips & Tricks</a>
+        <a href="#" class="footer-link">Say What?</a>
+        <a href="#" class="footer-link">Terms and Conditions</a>
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <p class="footer-connect">Connect with us!</p>
+        <i class="fa fa-2x fa-facebook-square"></i><i class="fa fa-2x fa-twitter-square"></i><i class="fa fa-2x fa-linkedin-square"></i>
+    </div>
+</body>
+
+</html>

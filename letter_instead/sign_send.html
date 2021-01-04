@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+Made by: Haroon Khalid
+
+..######...#######..########.....###........######..########..##.....##.##....##..######..##.....##
+.##....##.##.....##.##.....##...##.##......##....##.##.....##.##.....##.###...##.##....##.##.....##
+.##.......##.....##.##.....##..##...##.....##.......##.....##.##.....##.####..##.##.......##.....##
+..######..##.....##.##.....##.##.....##....##.......########..##.....##.##.##.##.##.......#########
+.......##.##.....##.##.....##.#########....##.......##...##...##.....##.##..####.##.......##.....##
+.##....##.##.....##.##.....##.##.....##....##....##.##....##..##.....##.##...###.##....##.##.....##
+..######...#######..########..##.....##.....######..##.....##..#######..##....##..######..##.....##
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Instead</title>
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300,500,900,700italic,900italic,500italic,400italic,300italic,100,100italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Marck+Script' rel='stylesheet' type='text/css'>
+    <script>
+    $(function() {
+
+        $(".mobile-menu i").click(function() {
+            $(".mobile-menu-nav").slideToggle();
+        });
+
+
+        $(".login-top-link, .m-m-login").click(function() {
+            $(".whitebg").show();
+            $(".mobile-menu-nav").slideToggle();
+            $(".login-window-container").show();
+        });
+
+        $(".login-window-content .fa-times").click(function() {
+            $(".whitebg, .login-window-container").hide();
+        });
+
+
+        $(".login-window-title i").click(function() {
+            $(".login-window-container").hide();
+        });
+
+        $(".whitebg").click(function() {
+            $(".whitebg").hide();
+            $(".login-window-container").hide();
+        });
+
+        $(".login-window-container").click(function(e) {
+            e.stopPropagation();
+            $(".whitebg").hide();
+            $(".login-window-container").hide();
+        });
+        $(".login-window-content").click(function(e) {
+            e.stopPropagation();
+        });
+
+        $(".login-top-link, .m-m-login").click(function() {
+            $(".whitebg").show();
+            $(".mobile-menu-nav").slideToggle();
+            $(".login-window-container").show();
+        });
+
+        $(".login-window-content .fa-times").click(function() {
+            $(".whitebg, .login-window-container").hide();
+        });
+
+
+        $(".login-window-title i").click(function() {
+            $(".login-window-container").hide();
+        });
+
+        $(".whitebg").click(function() {
+            $(".whitebg").hide();
+            $(".login-window-container").hide();
+        });
+
+        $(".login-window-container").click(function(e) {
+            e.stopPropagation();
+            $(".whitebg").hide();
+            $(".login-window-container").hide();
+        });
+        $(".login-window-content").click(function(e) {
+            e.stopPropagation();
+        });
+
+        $(".ss-share i").click(function() {
+            $(this).toggleClass("ss-share-on ss-share-off")
+        });
+
+    });
+    </script>
+</head>
+
+<body>
+    <div class="whitebg"></div>
+    <div class="mobile-menu mobile">
+        <div class="container ">
+            <div class="row">
+                <div class="col-xs-6 text-left">
+                    <a href="index.html"><img src="img/letter-instead-logo-notext.png" class="mobile-logo">
+                    </a>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <i class="fa fa-bars fa-2x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu-nav">
+            <div class="mobile-2">
+                <a href="#" class="mobile-menu-link mobile-1-link">Hot Topics</a>
+                <a href="#" class="mobile-menu-link-2 mobile-2-link">Compose a Letter</a>
+                <a href="#" class="mobile-menu-link mobile-3-link">Be a Sponsor</a>
+                <a href="#" class="mobile-menu-link-2 mobile-4-link">Tips & Tricks</a>
+                <a href="#" class="mobile-menu-link">Say What?!</a>
+                <a href="#" class="mobile-menu-link-2">Your Account</a>
+                <a href="#" class="mobile-menu-link">Full Site</a>
+                <a href="#" class="mobile-menu-link-2">Login</a>
+            </div>
+        </div>
+    </div>
+    <div class="container wrapper">
+        <div class="container-fluid desktop">
+            <div class="row">
+                <div class="col-xs-10 col-logo">
+                    <a href="index.html"><img src="img/letter-logo-header.png" class="logo letter-logo-header">
+                    </a>
+                    <img src="img/letter-instead-logo-header.png" class="logo">
+                </div>
+                <div class="col-xs-2 text-right col-sign-login">
+                    <a href="#" class="sign-up-top-link">Sign Up!</a>
+                    <a href="#" class="login-top-link">Login</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="nav-container">
+                    <ul>
+                        <li><a href="#">Hot Topics</a>
+                        </li>
+                        <li><a href="#">Compose a Letter</a>
+                        </li>
+                        <li><a href="#">Be a Sponsor</a>
+                        </li>
+                        <li><a href="#">Tips & Tricks</a>
+                        </li>
+                        <li><a href="#">Say What?</a>
+                        </li>
+                        <li class="cart"><a href="#"><i class="fa fa-lg fa-shopping-cart"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="login-window-container text-center">
+            <div class="login-window">
+                <div class="login-window-content">
+                    <i class="fa fa-times fa-lg mobile"></i>
+                    <p class="login-window-blue-btn"><i class="fa fa-facebook-official"></i> Login with Facebook</p>
+                    <p class="login-window-blue-btn">Create a New Account</p>
+                    <div class="input-group">
+                        <div class="input-group-addon login-input">Email</div>
+                        <input type="text" class="form-control" id="exampleInputAmount">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon login-input">Password</div>
+                        <input type="text" class="form-control" id="exampleInputAmount">
+                    </div>
+                    <p class="login-window-green-btn">Login</p>
+                </div>
+            </div>
+        </div>
+        <div class="letter-comp-container">
+            <div class="row">
+                <div class="col-xs-8 col-letter-comp">
+                    <p class="letter-comp-review-title green-background">Your letters</p>
+                    <div class="letter-comp-content">
+                        <div class="ss-letter-container">
+                            <span class="fa-stack fa-2x ss-arrow-right letter-card-footer-arrow">
+                            <i class="fa fa-3x fa-circle fa-stack-2x letter-card-icon-circle"></i>
+                            <i class="fa fa-arrow-right fa-stack-1x letter-card-icon-arrow"></i>
+                        </span>
+                            <span class="fa-stack fa-2x ss-arrow-left letter-card-footer-arrow">
+                            <i class="fa fa-3x fa-circle fa-stack-2x letter-card-icon-circle"></i>
+                            <i class="fa fa-arrow-left fa-stack-1x letter-card-icon-arrow"></i>
+                        </span>
+                            <p class="ss-letter-address">
+                                William Berryhill
+                                <br>123 Main Street
+                                <br>Anytown, US 10001
+                            </p>
+                            <p class="ss-letter-to">President Barrack Obama</p>
+                            <p class="ss-letter-to-address">1600 Pennsylvania Ave
+                                <br>Washington, DC 20500</p>
+                            <p class="ss-letter-title">We need to increase services to disabled vets.</p>
+                            <p class="ss-letter-dear">Dear President Barrack Obama,</p>
+                            <p class="ss-letter-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.</p>
+                            <p class="ss-letter-end">Sincerely,</p>
+                            <p class="ss-letter-sig">William Berryhill</p>
+                            <p class="ss-letter-name">William Berryhill</p>
+                        </div>
+                        <p class="ss-page">Showing 1 of 3</p>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-letter-sidebar">
+                    <p class="letter-comp-sidebar-btn">Provide Your Return Address</p>
+                    <p class="letter-comp-sidebar-btn">Choose Your Recipients</p>
+                    <p class="letter-comp-sidebar-btn-active letter-comp-sidebar-btn-no-margin">Sign and Send</p>
+                    <div class="letter-comp-sidebar-info">
+                        <div class="recipient-list ss-recip-list">
+                            <p class="ss-letter-recip">Letter Recipients <span class="ss-add">ADD MORE</span></p>
+                            <div class="row recipient-find-row" data-name="recip-find-1">
+                                <div class="col-xs-9 col-recip-checked">
+                                    <p class="recipient-name">President Barrack Obama </p>
+                                </div>
+                                <div class="col-xs-3 col-recip-cost text-right">
+                                    <p class="recipient-free">FREE! <i class="fa fa-trash"></i></p>
+                                </div>
+                            </div>
+                            <div class="row recipient-find-row" data-name="recip-find-4">
+                                <div class="col-xs-9 col-recip-checked">
+                                    <p class="recipient-name">Senator Saxby Chambliss</p>
+                                </div>
+                                <div class="col-xs-3 col-recip-cost text-right">
+                                    <p class="recipient-cost">$1.99 <i class="fa fa-trash"></i></p>
+                                </div>
+                            </div>
+                            <div class="row recipient-find-row" data-name="recip-find-4">
+                                <div class="col-xs-9 col-recip-checked">
+                                    <p class="recipient-name">Senator John Isakson</p>
+                                </div>
+                                <div class="col-xs-3 col-recip-cost text-right">
+                                    <p class="recipient-cost">$1.99 <i class="fa fa-trash"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ss-share">
+                            <p class="cart-sidebar-sponsor-text" style="margin: 0">Share on</p>
+                            <Br>
+                            <i class="fa fa-2x fa-facebook-square ss-share-on"></i>
+                            <i class="fa fa-2x fa-twitter-square ss-share-off"></i>
+                            <i class="fa fa-2x fa-linkedin-square ss-share-off"></i>
+                        </div>
+                        <div class="ss-privacy">
+                            <p class="cart-sidebar-sponsor-text">Privacy is </p>
+                            <select class="cart-sidebar-sponsor-edit">
+                                <option value="value1">OFF</option>
+                                <option value="value2">ON</option>
+                            </select>
+                        </div>
+                        <div class="ss-side-btns">
+                            <p class="letter-comp-next-btn ss-side-btn">Checkout
+                                <i class="fa fa-shopping-cart"></i>
+                            </p>
+                            <p class="letter-comp-save-btn ss-side-btn">Save for Later</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="blue-footer desktop"></div>
+        <div class="footer desktop">
+            <div class="row">
+                <div class="col-xs-2 footer-col">
+                    <a href="#" class="footer-link">Hot Topics</a>
+                    <a href="#" class="footer-link">Compose a Letter</a>
+                    <a href="#" class="footer-link">Become a Sponsor</a>
+                </div>
+                <div class="col-xs-2 footer-col">
+                    <a href="#" class="footer-link">Tips & Tricks</a>
+                    <a href="#" class="footer-link">Say What?</a>
+                </div>
+                <div class="col-xs-3 footer-col">
+                    <a href="#" class="footer-link">Terms and Conditions</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                </div>
+                <div class="col-xs-3 footer-col text-right">
+                    <p class="footer-connect">Connect with us!</p>
+                    <i class="fa fa-2x fa-facebook-square"></i><i class="fa fa-2x fa-twitter-square"></i><i class="fa fa-2x fa-linkedin-square"></i>
+                </div>
+                <div class="col-xs-2 footer-col text-right">
+                    <a href="index.html"><img src="img/letter-logo.png">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                © 2015 Letter Instead
+            </div>
+        </div>
+    </div>
+    <div class="container mobile-footer mobile text-center">
+        <a href="#" class="footer-link">Hot Topics</a>
+        <a href="#" class="footer-link">Compose a Letter</a>
+        <a href="#" class="footer-link">Become a Sponsor</a>
+        <a href="#" class="footer-link">Tips & Tricks</a>
+        <a href="#" class="footer-link">Say What?</a>
+        <a href="#" class="footer-link">Terms and Conditions</a>
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <p class="footer-connect">Connect with us!</p>
+        <i class="fa fa-2x fa-facebook-square"></i><i class="fa fa-2x fa-twitter-square"></i><i class="fa fa-2x fa-linkedin-square"></i>
+    </div>
+</body>
+
+</html>

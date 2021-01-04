@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html>
+
+<!-- 
+Made by: Haroon Khalid
+
+..######...#######..########.....###........######..########..##.....##.##....##..######..##.....##
+.##....##.##.....##.##.....##...##.##......##....##.##.....##.##.....##.###...##.##....##.##.....##
+.##.......##.....##.##.....##..##...##.....##.......##.....##.##.....##.####..##.##.......##.....##
+..######..##.....##.##.....##.##.....##....##.......########..##.....##.##.##.##.##.......#########
+.......##.##.....##.##.....##.#########....##.......##...##...##.....##.##..####.##.......##.....##
+.##....##.##.....##.##.....##.##.....##....##....##.##....##..##.....##.##...###.##....##.##.....##
+..######...#######..########..##.....##.....######..##.....##..#######..##....##..######..##.....##
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Instead</title>
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300,500,900,700italic,900italic,500italic,400italic,300italic,100,100italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
+    <script>
+    $(function() {
+
+        btn_height = $(".letter-btn-oppose").outerHeight();
+
+        $(".letter-send-red").css({
+            height: btn_height
+        });
+
+        $(document.body).click(function(event) {
+            $(".letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info, .card-fav-info, .letter-sponsor-send").removeClass("open");
+            $(".letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info, .card-fav-info, .letter-sponsor-send").addClass("close");
+        });
+
+
+        $(document.body).on('click', '.letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info', function(event) {
+            event.stopPropagation()
+        });
+
+        $(".letter-info-agree").click(function(event) {
+            event.stopPropagation();
+            if ($(this).parents(".letter-container").find(".letter-agree-info").hasClass("close")) {
+                $(".letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info, .card-fav-info, .letter-sponsor-send").removeClass("open");
+                $(".letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info, .card-fav-info, .letter-sponsor-send").addClass("close");
+                $(this).parents(".letter-container").find(".letter-agree-info").css({
+                    top: 45,
+                    left: 0
+                }).toggleClass("close open");
+            } else {
+                $(this).parents(".letter-container").find(".letter-agree-info").css({
+                    top: 45,
+                    left: 0
+                }).removeClass("open");
+                $(this).parents(".letter-container").find(".letter-agree-info").css({
+                    top: 45,
+                    left: 0
+                }).addClass("close");
+
+            }
+        });
+
+        $(".letter-info-oppose").click(function(event) {
+            event.stopPropagation();
+            if ($(this).parents(".letter-container").find(".letter-oppose-info").hasClass("close")) {
+                $(".letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info, .card-fav-info, .letter-sponsor-send").removeClass("open");
+                $(".letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info, .card-fav-info, .letter-sponsor-send").addClass("close");
+                $(this).parents(".letter-container").find(".letter-oppose-info").css({
+                    top: 45,
+                    left: 0
+                }).toggleClass("close open");
+            } else {
+                $(this).parents(".letter-container").find(".letter-oppose-info").css({
+                    top: 45,
+                    left: 0
+                }).removeClass("open");
+                $(this).parents(".letter-container").find(".letter-oppose-info").css({
+                    top: 45,
+                    left: 0
+                }).addClass("close");
+
+            }
+        });
+
+        $(".letter-info-sponsor").click(function(event) {
+            event.stopPropagation();
+            if ($(this).parents(".letter-container").find(".letter-sponsor-info").hasClass("close")) {
+                $(".letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info, .card-fav-info, .letter-sponsor-send").removeClass("open");
+                $(".letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info, .card-fav-info, .letter-sponsor-send").addClass("close");
+                $(this).parents(".letter-container").find(".letter-sponsor-info").css({
+                    top: 45,
+                    left: 0
+                }).toggleClass("close open");
+            } else {
+                $(this).parents(".letter-container").find(".letter-sponsor-info").css({
+                    top: 45,
+                    left: 0
+                }).removeClass("open");
+                $(this).parents(".letter-container").find(".letter-sponsor-info").css({
+                    top: 45,
+                    left: 0
+                }).addClass("close");
+
+            }
+        });
+
+        $(".letter-card-container .letter-info-agree").click(function(event) {
+            event.stopPropagation();
+            if ($(this).parents(".letter-card-container").find(".letter-agree-info").hasClass("close")) {
+                $(".letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info, .card-fav-info, .letter-sponsor-send").removeClass("open");
+                $(".letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info, .card-fav-info, .letter-sponsor-send").addClass("close");
+                $(this).parents(".letter-card-container").find(".letter-agree-info").css({
+                    top: 45,
+                    left: 0
+                }).toggleClass("close open");
+            } else {
+                $(this).parents(".letter-card-container").find(".letter-agree-info").css({
+                    top: 45,
+                    left: 0
+                }).removeClass("open");
+                $(this).parents(".letter-card-container").find(".letter-agree-info").css({
+                    top: 45,
+                    left: 0
+                }).addClass("close");
+            }
+        });
+
+        $(".letter-card-container .letter-info-oppose").click(function(event) {
+            event.stopPropagation();
+            if ($(this).parents(".letter-card-container").find(".letter-oppose-info").hasClass("close")) {
+                $(".letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info, .card-fav-info, .letter-sponsor-send").removeClass("open");
+                $(".letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info, .card-fav-info, .letter-sponsor-send").addClass("close");
+                $(this).parents(".letter-card-container").find(".letter-oppose-info").css({
+                    top: 45,
+                    left: 0
+                }).toggleClass("close open");
+            } else {
+                $(this).parents(".letter-card-container").find(".letter-oppose-info").css({
+                    top: 45,
+                    left: 0
+                }).removeClass("open");
+                $(this).parents(".letter-card-container").find(".letter-oppose-info").css({
+                    top: 45,
+                    left: 0
+                }).addClass("close");
+
+            }
+        });
+
+        $(".letter-card-container .letter-info-sponsor").click(function(event) {
+            event.stopPropagation();
+            if ($(this).parents(".letter-card-container").find(".letter-sponsor-info").hasClass("close")) {
+                $(".letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info, .card-fav-info, .letter-sponsor-send").removeClass("open");
+                $(".letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info, .card-fav-info, .letter-sponsor-send").addClass("close");
+                $(this).parents(".letter-card-container").find(".letter-sponsor-info").css({
+                    top: 45,
+                    left: 0
+                }).toggleClass("close open");
+            } else {
+                $(this).parents(".letter-card-container").find(".letter-sponsor-info").css({
+                    top: 45,
+                    left: 0
+                }).removeClass("open");
+                $(this).parents(".letter-card-container").find(".letter-sponsor-info").css({
+                    top: 45,
+                    left: 0
+                }).addClass("close");
+
+            }
+        });
+
+        $(".letter-send-grey-img").click(function(event) {
+            event.stopPropagation();
+            if ($(this).parents(".letter-container").find(".letter-sponsor-send").hasClass("close")) {
+                $(".letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info, .card-fav-info, .letter-sponsor-send").removeClass("open");
+                $(".letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info, .card-fav-info, .letter-sponsor-send").addClass("close");
+
+                var win_w = $(window).width();
+
+                if (win_w > 792) {
+
+                    $(this).parents(".letter-container").find(".letter-sponsor-send").css({
+                        top: 80,
+                        right: -75
+                    }).toggleClass("close open");
+
+                } else {
+
+                    $(this).parents(".letter-container").find(".letter-sponsor-send").css({
+                        top: 80,
+                        right: 10
+                    }).toggleClass("close open");
+
+                }
+
+            } else {
+
+                if (win_w > 792) {
+
+                    $(this).parents(".letter-container").find(".letter-sponsor-send").css({
+                        top: 80,
+                        right: -75
+                    }).removeClass("open");
+                    $(this).parents(".letter-container").find(".letter-sponsor-send").css({
+                        top: 80,
+                        right: -75
+                    }).addClass("close");
+
+                } else {
+
+                    $(this).parents(".letter-container").find(".letter-sponsor-send").css({
+                        top: 80,
+                        right: -75
+                    }).removeClass("open");
+                    $(this).parents(".letter-container").find(".letter-sponsor-send").css({
+                        top: 80,
+                        right: 10
+                    }).addClass("close");
+
+                }
+
+            }
+        });
+
+        $(".letter-container .fa-heart").click(function(event) {
+            event.stopPropagation();
+            if ($(this).parents(".letter-container").find(".letter-fav-info").hasClass("close")) {
+                $(".letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info, .card-fav-info, .letter-sponsor-send").removeClass("open");
+                $(".letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info, .card-fav-info, .letter-sponsor-send").addClass("close");
+
+
+                var win_w = $(window).width();
+
+                if (win_w > 792) {
+
+                    $(this).parents(".letter-container").find(".letter-fav-info").css({
+                        top: 110,
+                        left: 80
+                    }).toggleClass("close open");
+
+                } else {
+
+                    $(this).parents(".letter-container").find(".letter-fav-info").css({
+                        top: 140,
+                        left: 20
+                    }).toggleClass("close open");
+
+                }
+
+            } else {
+                $(this).parents(".letter-container").find(".letter-fav-info").css({
+                    top: 110,
+                    left: 80
+                }).removeClass("open");
+                $(this).parents(".letter-container").find(".letter-fav-info").css({
+                    top: 110,
+                    left: 80
+                }).addClass("close");
+
+            }
+        });
+
+        $(".letter-card-container .fa-heart").click(function(event) {
+            event.stopPropagation();
+
+            if ($(this).parents(".letter-card-container").find(".card-fav-info").hasClass("close")) {
+                $(".letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info, .card-fav-info, .letter-sponsor-send").removeClass("open");
+                $(".letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info, .card-fav-info, .letter-sponsor-send").addClass("close");
+                $(this).parents(".letter-card-container").find(".card-fav-info").css({
+                    top: 100,
+                    left: 80
+                }).toggleClass("close open");
+            } else {
+                $(this).parents(".letter-card-container").find(".card-fav-info").css({
+                    top: 100,
+                    left: 80
+                }).removeClass("open");
+                $(this).parents(".letter-card-container").find(".card-fav-info").css({
+                    top: 100,
+                    left: 80
+                }).addClass("close");
+
+            }
+        });
+
+        $(".letter-agree-info, .letter-oppose-info, .letter-sponsor-info, .letter-fav-info, .card-fav-info, .letter-sponsor-send").click(function() {
+            $(this).removeClass("open");
+            $(this).addClass("close");
+        });
+
+
+        $(".mobile-menu i").click(function() {
+            $(".mobile-menu-nav").slideToggle();
+        });
+
+        $(".mobile-menu-link").click(function() {
+            $(".mobile-menu-nav").slideToggle();
+        });
+
+                        $(".login-top-link, .m-m-login").click(function() {
+            $(".whitebg").show();
+            $(".mobile-menu-nav").slideToggle();
+            $(".login-window-container").show();
+        });
+
+        $(".login-window-content .fa-times").click(function() {
+            $(".whitebg, .login-window-container").hide();
+        });
+
+
+        $(".login-window-title i").click(function() {
+            $(".login-window-container").hide();
+        });
+
+        $(".whitebg").click(function() {
+            $(".whitebg").hide();
+            $(".login-window-container").hide();
+        });
+
+        $(".login-window-container").click(function(e) {
+            e.stopPropagation();
+            $(".whitebg").hide();
+            $(".login-window-container").hide();
+        });
+        $(".login-window-content").click(function(e) {
+            e.stopPropagation();
+        });
+
+    });
+    </script>
+</head>
+
+<body>
+    <div class="whitebg"></div>
+
+    <div class="preload-container">
+        <div class="preload-1"></div>
+        <div class="preload-2"></div>
+        <div class="preload-3"></div>
+        <div class="preload-4"></div>
+        <div class="preload-5"></div>
+        <div class="preload-6"></div>
+    </div>
+
+    <div class="mobile-menu mobile">
+        <div class="container ">
+            <div class="row">
+                <div class="col-xs-6 text-left">
+                    <a href="index.html"><img src="img/letter-instead-logo-notext.png" class="mobile-logo">
+                    </a>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <i class="fa fa-bars fa-2x"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="mobile-menu-nav">
+            <div class="mobile-2">
+                <a href="#" class="mobile-menu-link mobile-1-link">Hot Topics</a>
+                <a href="#" class="mobile-menu-link-2 mobile-2-link">Compose a Letter</a>
+                <a href="#" class="mobile-menu-link mobile-3-link">Be a Sponsor</a>
+                <a href="#" class="mobile-menu-link-2 mobile-4-link">Tips & Tricks</a>
+                <a href="#" class="mobile-menu-link">Say What?!</a>
+                <a href="#" class="mobile-menu-link-2">Your Account</a>
+                <a href="#" class="mobile-menu-link">Full Site</a>
+                <a href="#" class="mobile-menu-link-2">Login</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container wrapper">
+
+        <div class="container-fluid desktop">
+            <div class="row">
+                <div class="col-xs-10 col-logo">
+                    <a href="index.html"><img src="img/letter-logo-header.png" class="logo letter-logo-header">
+                    </a>
+                    <img src="img/letter-instead-logo-header.png" class="logo">
+                </div>
+                <div class="col-xs-2 text-right col-sign-login">
+                    <a href="#" class="sign-up-top-link">Sign Up!</a>
+                    <a href="#" class="login-top-link">Login</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <nav class="nav-container">
+                    <ul>
+                        <li><a href="#" class="nav-active">Hot Topics</a>
+                        </li>
+                        <li><a href="#">Compose a Letter</a>
+                        </li>
+                        <li><a href="#">Be a Sponsor</a>
+                        </li>
+                        <li><a href="#">Tips & Tricks</a>
+                        </li>
+                        <li><a href="#">Say What?</a>
+                        </li>
+                        <li class="cart"><a href="#"><i class="fa fa-lg fa-shopping-cart"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="white-bg breadcrumbs">
+            <a href="#" class="page-nav-text">Hot Topics</a> > <a href="#" class="page-nav-text">Obamacare too expensive for the self-employed.</a>
+        </div>
+                <div class="login-window-container text-center">
+            <div class="login-window">
+                <div class="login-window-content">
+                    <i class="fa fa-times fa-lg mobile"></i>
+                    <p class="login-window-blue-btn"><i class="fa fa-facebook-official"></i> Login with Facebook</p>
+                    <p class="login-window-blue-btn">Create a New Account</p>
+                    <div class="input-group">
+                        <div class="input-group-addon login-input">Email</div>
+                        <input type="text" class="form-control" id="exampleInputAmount">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon login-input">Password</div>
+                        <input type="text" class="form-control" id="exampleInputAmount">
+                    </div>
+                    <p class="login-window-green-btn">Login</p>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid letter-page-container">
+
+            <div class="row">
+
+                <div class="col-xs-8 col-letter">
+
+                    <div class="letter-container">
+
+                        <div class="letter-fav-info close">
+                            <p class="letter-info-text">This author is in your favorites.
+                                <br>Click the author's name to remove.</p>
+                        </div>
+
+                        <span class="fa-stack fa-2x letter-arrow-left letter-title-arrow desktop">
+                            <i class="fa fa-3x fa-circle fa-stack-2x letter-card-icon-circle"></i>
+                            <i class="fa fa-arrow-left fa-stack-1x letter-card-icon-arrow"></i>
+                        </span>
+
+                        <span class="fa-stack fa-2x letter-arrow-right letter-title-arrow desktop">
+                            <i class="fa fa-3x fa-circle fa-stack-2x letter-card-icon-circle"></i>
+                            <i class="fa fa-arrow-right fa-stack-1x letter-card-icon-arrow"></i>
+                        </span>
+
+                        <div class="letter-send-arrows-container mobile">
+                            <img src="img/letter-send-link.png">
+                            <i class="fa fa-2x fa-arrow-left letter-send-left-arrow"></i>
+                            <i class="fa fa-2x fa-arrow-right letter-send-right-arrow"></i>
+                        </div>
+
+                        <p class="letter-title">Obamacare too expensive for the self-employed.</p>
+                        <p class="letter-by">by <span class="letter-username">betamax57</span><i class="fa fa-heart"></i>
+                        </p>
+
+                        <div class="row letter-row-btns gutter-5">
+                            <div class="col-xs-3 gutter-5">
+                                <a class="letter-btn-agree">Agree<i class="fa fa-info-circle letter-info-agree"></i>
+                                        </a>
+                                <div class="letter-agree-info close">
+                                    <p class="letter-info-text">Like this message?
+                                        <br>Edit and Send your own version of this letter to your representatives!</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-3 gutter-5">
+                                <a class="letter-btn-oppose">Oppose<i class="fa fa-info-circle letter-info-oppose"></i>
+                                        </a>
+                                <div class="letter-oppose-info close">
+                                    <p class="letter-info-text">Dont like this message?
+                                        <br>Write an opposing viewpoint!</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-3 gutter-5">
+                                <a class="letter-btn-sponsor">Sponsor<i class="fa fa-info-circle letter-info-sponsor"></i>
+                                        </a>
+                                <div class="letter-sponsor-info close">
+                                    <p class="letter-info-text">Sponsor this letter to let others send this letter to thier representatives for Free!</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-3 gutter-5 desktop">
+                                <a href="#">
+                                    <div class="letter-send-free-container"></div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="letter-text-container">
+                            <p class="letter-text desktop">
+                                Lorem ipsum dolor sit amet, te aperiri voluptatibus ius. Quo verterem senserit ei. Quis accommodare ex mea. Ea inani graecis has, pri ei dolores apeirian persecuti. Erat dicat delectus sea id. Ex eos aeterno nostrum quaerendum. Sint audire et mea, duo et noster definitiones. Mel idque nemore efficiantur eu, no usu discere probatus abhorreant. Ex laudem propriae vel. Te dicta temporibus nec. Pri in impetus labores ancillae, an ius suas veri simul. Vix habeo oportere ut. Qui te tollit posidonium ullamcorper. Eu brute graece per. Adhuc libris definitionem ad vim, solet altera bonorum id quo, ea falli elaboraret usu. Est ea quando epicurei patrioque. Et graeci commodo sententiae est, sea eu error nullam, dico vituperatoribus eum eu. Ei homero efficiantur vim, cu iisque alienum gloriatur usu. An aeque propriae sed. Elitr primis ne duo, lorem erant repudiare eam in. Eu malorum conclusionemque per.
+                                <br>
+                                <br>Causae incorrupte eum no. No vix denique eligendi. Vel no veri meis albucius, mentitum atomorum mel ex. Te tollit cetero eos, mea ei dolor hendrerit. Vel dolorem senserit ad, no scaevola concludaturque pri, omnes alienum sententiae vel ad. Ei option dolorum ius, eius facilis definitiones ei his, ne odio debitis oporteat his. Illud hendrerit theophrastus te has, no autem dolores vim.
+                                <br>
+                                <br>Quo verterem senserit ei. Quis accommodare ex mea. Ea inani graecis has, pri ei dolores apeirian persecuti. Erat dicat delectus sea id. Ex eos aeterno nostrum quaerendum. Sint audire et mea, duo et noster definitiones. Mel idque nemore efficiantur eu, no usu discere probatus abhorreant. Ex laudem propriae vel. Te dicta temporibus nec. Pri in impetus labores ancillae, an ius suas veri simul. Vix habeo oportere ut.
+                                <br>
+                                <br> Lorem ipsum dolor sit amet, te aperiri voluptatibus ius. Quo verterem senserit ei. Quis accommodare ex mea. Ea inani graecis has, pri ei dolores apeirian persecuti. Erat dicat delectus sea id. Ex eos aeterno nostrum quaerendum. Sint audire et mea, duo et noster definitiones. Mel idque nemore efficiantur eu, no usu discere probatus abhorreant. Ex laudem propriae vel. Te dicta temporibus nec. Pri in impetus labores ancillae, an ius suas veri simul. Vix habeo oportere ut.
+                                <br>
+                                <br> Qui te tollit posidonium ullamcorper. Eu brute graece per. Adhuc libris definitionem ad vim, solet altera bonorum id quo, ea falli elaboraret usu. Est ea quando epicurei patrioque. Et graeci commodo sententiae est, sea eu error nullam, dico vituperatoribus eum eu. Ei homero efficiantur vim, cu iisque alienum gloriatur usu. An aeque propriae sed. Elitr primis ne duo, lorem erant repudiare eam in. Eu malorum conclusionemque per.
+                                <br>
+                                <br>Causae incorrupte eum no. No vix denique eligendi. Vel no veri meis albucius, mentitum atomorum mel ex. Te tollit cetero eos, mea ei dolor hendrerit. Vel dolorem senserit ad, no scaevola concludaturque pri, omnes alienum sententiae vel ad. Ei option dolorum ius, eius facilis definitiones ei his, ne odio debitis oporteat his. Illud hendrerit theophrastus te has, no autem dolores vim.
+                                <br>
+                                <br>Quo verterem senserit ei. Quis accommodare ex mea. Ea inani graecis has, pri ei dolores apeirian persecuti. Erat dicat delectus sea id. Ex eos aeterno nostrum quaerendum. Sint audire et mea, duo et noster definitiones. Mel idque nemore efficiantur eu, no usu discere probatus abhorreant. Ex laudem propriae vel. Te dicta temporibus nec. Pri in impetus labores ancillae, an ius suas veri simul. Vix habeo oportere ut.
+                                <br>
+                                <br> Lorem ipsum dolor sit amet, te aperiri voluptatibus ius. Quo verterem senserit ei. Quis accommodare ex mea. Ea inani graecis has, pri ei dolores apeirian persecuti. Erat dicat delectus sea id. Ex eos aeterno nostrum quaerendum. Sint audire et mea, duo et noster definitiones. Mel idque nemore efficiantur eu, no usu discere probatus abhorreant. Ex laudem propriae vel. Te dicta temporibus nec. Pri in impetus labores ancillae, an ius suas veri simul. Vix habeo oportere ut.
+                                <br>
+                                <br> Qui te tollit posidonium ullamcorper. Eu brute graece per. Adhuc libris definitionem ad vim, solet altera bonorum id quo, ea falli elaboraret usu. Est ea quando epicurei patrioque. Et graeci commodo sententiae est, sea eu error nullam, dico vituperatoribus eum eu. Ei homero efficiantur vim, cu iisque alienum gloriatur usu. An aeque propriae sed. Elitr primis ne duo, lorem erant repudiare eam in. Eu malorum conclusionemque per.
+                                <br>
+                                <br>Causae incorrupte eum no. No vix denique eligendi. Vel no veri meis albucius, mentitum atomorum mel ex. Te tollit cetero eos, mea ei dolor hendrerit. Vel dolorem senserit ad, no scaevola concludaturque pri, omnes alienum sententiae vel ad. Ei option dolorum ius, eius facilis definitiones ei his, ne odio debitis oporteat his. Illud hendrerit theophrastus te has, no autem dolores vim.
+                                <br>
+                                <br>Quo verterem senserit ei. Quis accommodare ex mea. Ea inani graecis has, pri ei dolores apeirian persecuti. Erat dicat delectus sea id. Ex eos aeterno nostrum quaerendum. Sint audire et mea, duo et noster definitiones. Mel idque nemore efficiantur eu, no usu discere probatus abhorreant. Ex laudem propriae vel. Te dicta temporibus nec. Pri in impetus labores ancillae, an ius suas veri simul. Vix habeo oportere ut.
+                                <br>
+                                <br> Lorem ipsum dolor sit amet, te aperiri voluptatibus ius. Quo verterem senserit ei. Quis accommodare ex mea. Ea inani graecis has, pri ei dolores apeirian persecuti. Erat dicat delectus sea id. Ex eos aeterno nostrum quaerendum. Sint audire et mea, duo et noster definitiones. Mel idque nemore efficiantur eu, no usu discere probatus abhorreant. Ex laudem propriae vel. Te dicta temporibus nec. Pri in impetus labores ancillae, an ius suas veri simul. Vix habeo oportere ut.
+                                <br>
+                                <br> Qui te tollit posidonium ullamcorper. Eu brute graece per. Adhuc libris definitionem ad vim, solet altera bonorum id quo, ea falli elaboraret usu. Est ea quando epicurei patrioque. Et graeci commodo sententiae est, sea eu error nullam, dico vituperatoribus eum eu. Ei homero efficiantur vim, cu iisque alienum gloriatur usu. An aeque propriae sed. Elitr primis ne duo, lorem erant repudiare eam in. Eu malorum conclusionemque per.
+                                <br>
+                                <br>Causae incorrupte eum no. No vix denique eligendi. Vel no veri meis albucius, mentitum atomorum mel ex. Te tollit cetero eos, mea ei dolor hendrerit. Vel dolorem senserit ad, no scaevola concludaturque pri, omnes alienum sententiae vel ad. Ei option dolorum ius, eius facilis definitiones ei his, ne odio debitis oporteat his. Illud hendrerit theophrastus te has, no autem dolores vim.
+                                <br>
+                                <br>Quo verterem senserit ei. Quis accommodare ex mea. Ea inani graecis has, pri ei dolores apeirian persecuti. Erat dicat delectus sea id. Ex eos aeterno nostrum quaerendum. Sint audire et mea, duo et noster definitiones. Mel idque nemore efficiantur eu, no usu discere probatus abhorreant. Ex laudem propriae vel. Te dicta temporibus nec. Pri in impetus labores ancillae, an ius suas veri simul. Vix habeo oportere ut.
+                                <br>
+                                <br> Lorem ipsum dolor sit amet, te aperiri voluptatibus ius. Quo verterem senserit ei. Quis accommodare ex mea. Ea inani graecis has, pri ei dolores apeirian persecuti. Erat dicat delectus sea id. Ex eos aeterno nostrum quaerendum. Sint audire et mea, duo et noster definitiones. Mel idque nemore efficiantur eu, no usu discere probatus abhorreant. Ex laudem propriae vel. Te dicta temporibus nec. Pri in impetus labores ancillae, an ius suas veri simul. Vix habeo oportere ut.
+                                <br>
+                                <br> Qui te tollit posidonium ullamcorper. Eu brute graece per. Adhuc libris definitionem ad vim, solet altera bonorum id quo, ea falli elaboraret usu. Est ea quando epicurei patrioque. Et graeci commodo sententiae est, sea eu error nullam, dico vituperatoribus eum eu. Ei homero efficiantur vim, cu iisque alienum gloriatur usu. An aeque propriae sed. Elitr primis ne duo, lorem erant repudiare eam in. Eu malorum conclusionemque per.
+                                <br>
+                                <br>Causae incorrupte eum no. No vix denique eligendi. Vel no veri meis albucius, mentitum atomorum mel ex. Te tollit cetero eos, mea ei dolor hendrerit. Vel dolorem senserit ad, no scaevola concludaturque pri, omnes alienum sententiae vel ad. Ei option dolorum ius, eius facilis definitiones ei his, ne odio debitis oporteat his. Illud hendrerit theophrastus te has, no autem dolores vim.
+                                <br>
+                                <br>Quo verterem senserit ei. Quis accommodare ex mea. Ea inani graecis has, pri ei dolores apeirian persecuti. Erat dicat delectus sea id. Ex eos aeterno nostrum quaerendum. Sint audire et mea, duo et noster definitiones. Mel idque nemore efficiantur eu, no usu discere probatus abhorreant. Ex laudem propriae vel. Te dicta temporibus nec. Pri in impetus labores ancillae, an ius suas veri simul. Vix habeo oportere ut.
+                                <br>
+                                <br> Lorem ipsum dolor sit amet, te aperiri voluptatibus ius. Quo verterem senserit ei. Quis accommodare ex mea. Ea inani graecis has, pri ei dolores apeirian persecuti. Erat dicat delectus sea id. Ex eos aeterno nostrum quaerendum. Sint audire et mea, duo et noster definitiones. Mel idque nemore efficiantur eu, no usu discere probatus abhorreant. Ex laudem propriae vel. Te dicta temporibus nec. Pri in impetus labores ancillae, an ius suas veri simul. Vix habeo oportere ut.
+                                <br>
+                                <br> Qui te tollit posidonium ullamcorper. Eu brute graece per. Adhuc libris definitionem ad vim, solet altera bonorum id quo, ea falli elaboraret usu. Est ea quando epicurei patrioque. Et graeci commodo sententiae est, sea eu error nullam, dico vituperatoribus eum eu. Ei homero efficiantur vim, cu iisque alienum gloriatur usu. An aeque propriae sed. Elitr primis ne duo, lorem erant repudiare eam in. Eu malorum conclusionemque per.
+                                <br>
+                                <br>Causae incorrupte eum no. No vix denique eligendi. Vel no veri meis albucius, mentitum atomorum mel ex. Te tollit cetero eos, mea ei dolor hendrerit. Vel dolorem senserit ad, no scaevola concludaturque pri, omnes alienum sententiae vel ad. Ei option dolorum ius, eius facilis definitiones ei his, ne odio debitis oporteat his. Illud hendrerit theophrastus te has, no autem dolores vim.
+                                <br>
+                                <br>Quo verterem senserit ei. Quis accommodare ex mea. Ea inani graecis has, pri ei dolores apeirian persecuti. Erat dicat delectus sea id. Ex eos aeterno nostrum quaerendum. Sint audire et mea, duo et noster definitiones. Mel idque nemore efficiantur eu, no usu discere probatus abhorreant. Ex laudem propriae vel. Te dicta temporibus nec. Pri in impetus labores ancillae, an ius suas veri simul. Vix habeo oportere ut.
+                                <br>
+                                <br> Lorem ipsum dolor sit amet, te aperiri voluptatibus ius. Quo verterem senserit ei. Quis accommodare ex mea. Ea inani graecis has, pri ei dolores apeirian persecuti. Erat dicat delectus sea id. Ex eos aeterno nostrum quaerendum. Sint audire et mea, duo et noster definitiones. Mel idque nemore efficiantur eu, no usu discere probatus abhorreant. Ex laudem propriae vel. Te dicta temporibus nec. Pri in impetus labores ancillae, an ius suas veri simul. Vix habeo oportere ut.
+                                <br>
+                                <br> Qui te tollit posidonium ullamcorper. Eu brute graece per. Adhuc libris definitionem ad vim, solet altera bonorum id quo, ea falli elaboraret usu. Est ea quando epicurei patrioque. Et graeci commodo sententiae est, sea eu error nullam, dico vituperatoribus eum eu. Ei homero efficiantur vim, cu iisque alienum gloriatur usu. An aeque propriae sed. Elitr primis ne duo, lorem erant repudiare eam in. Eu malorum conclusionemque per.
+                                <br>
+                                <br>Causae incorrupte eum no. No vix denique eligendi. Vel no veri meis albucius, mentitum atomorum mel ex. Te tollit cetero eos, mea ei dolor hendrerit. Vel dolorem senserit ad, no scaevola concludaturque pri, omnes alienum sententiae vel ad. Ei option dolorum ius, eius facilis definitiones ei his, ne odio debitis oporteat his. Illud hendrerit theophrastus te has, no autem dolores vim.
+                                <br>
+                                <br>Quo verterem senserit ei. Quis accommodare ex mea. Ea inani graecis has, pri ei dolores apeirian persecuti. Erat dicat delectus sea id. Ex eos aeterno nostrum quaerendum. Sint audire et mea, duo et noster definitiones. Mel idque nemore efficiantur eu, no usu discere probatus abhorreant. Ex laudem propriae vel. Te dicta temporibus nec. Pri in impetus labores ancillae, an ius suas veri simul. Vix habeo oportere ut.
+                                <br>
+                                <br> Lorem ipsum dolor sit amet, te aperiri voluptatibus ius. Quo verterem senserit ei. Quis accommodare ex mea. Ea inani graecis has, pri ei dolores apeirian persecuti. Erat dicat delectus sea id. Ex eos aeterno nostrum quaerendum. Sint audire et mea, duo et noster definitiones. Mel idque nemore efficiantur eu, no usu discere probatus abhorreant. Ex laudem propriae vel. Te dicta temporibus nec. Pri in impetus labores ancillae, an ius suas veri simul. Vix habeo oportere ut.
+                                <br>
+                                <br> Qui te tollit posidonium ullamcorper. Eu brute graece per. Adhuc libris definitionem ad vim, solet altera bonorum id quo, ea falli elaboraret usu. Est ea quando epicurei patrioque. Et graeci commodo sententiae est, sea eu error nullam, dico vituperatoribus eum eu. Ei homero efficiantur vim, cu iisque alienum gloriatur usu. An aeque propriae sed. Elitr primis ne duo, lorem erant repudiare eam in. Eu malorum conclusionemque per.
+                                <br>
+                                <br>Causae incorrupte eum no. No vix denique eligendi. Vel no veri meis albucius, mentitum atomorum mel ex. Te tollit cetero eos, mea ei dolor hendrerit. Vel dolorem senserit ad, no scaevola concludaturque pri, omnes alienum sententiae vel ad. Ei option dolorum ius, eius facilis definitiones ei his, ne odio debitis oporteat his. Illud hendrerit theophrastus te has, no autem dolores vim.
+                                <br>
+                                <br>Quo verterem senserit ei. Quis accommodare ex mea. Ea inani graecis has, pri ei dolores apeirian persecuti. Erat dicat delectus sea id. Ex eos aeterno nostrum quaerendum. Sint audire et mea, duo et noster definitiones. Mel idque nemore efficiantur eu, no usu discere probatus abhorreant. Ex laudem propriae vel. Te dicta temporibus nec. Pri in impetus labores ancillae, an ius suas veri simul. Vix habeo oportere ut.
+                            </p>
+                            <p class="letter-text mobile">
+                                Lorem ipsum dolor sit amet, te aperiri voluptatibus ius. Quo verterem senserit ei. Quis accommodare ex mea. Ea inani graecis has, pri ei dolores apeirian persecuti. Erat dicat delectus sea id. Ex eos aeterno nostrum quaerendum. Sint audire et mea, duo et noster definitiones. Mel idque nemore efficiantur eu, no usu discere probatus abhorreant. Ex laudem propriae vel. Te dicta temporibus nec. Pri in impetus labores ancillae, an ius suas veri simul. Vix habeo oportere ut. Qui te tollit posidonium ullamcorper. Eu brute graece per. Adhuc libris definitionem ad vim, solet altera bonorum id quo, ea falli elaboraret usu. Est ea quando epicurei patrioque. Et graeci commodo sententiae est, sea eu error nullam, dico vituperatoribus eum eu. Ei homero efficiantur vim, cu iisque alienum gloriatur usu. An aeque propriae sed. Elitr primis ne duo, lorem erant repudiare eam in. Eu malorum conclusionemque per.
+                                <br>
+                                <br>Causae incorrupte eum no. No vix denique eligendi. Vel no veri meis albucius, mentitum atomorum mel ex. Te tollit cetero eos, mea ei dolor hendrerit. Vel dolorem senserit ad, no scaevola concludaturque pri, omnes alienum sententiae vel ad. Ei option dolorum ius, eius facilis definitiones ei his, ne odio debitis oporteat his. Illud hendrerit theophrastus te has, no autem dolores vim.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-xs-4 col-letter-stats">
+
+                    <div class="letter-sent-container">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img src="img/letter-logo.png" class="letter-li-logo">
+                            </div>
+                            <div class="col-xs-8 text-center">
+                                <p class="letter-sent-num">787,082</p>
+                                <p class="letter-sent-text">Letters Sent</p>
+                                <p class="letter-sent-agreed">82 Agreed <span class="letter-sent-opposed">787,000 Opposed</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="letter-date-container">
+                        <p class="letter-date-title">Last Activity Date: <span class="letter-date">08/15/2013</span>
+                        </p>
+                        <p class="letter-date-title">Authored: <span class="letter-date">03/16/2012</span>
+                        </p>
+                    </div>
+
+                    <div class="letter-people-container">
+                        <p class="letter-people-sent">This letter has been sent to:</p>
+                        <div class="letter-people-list-container">
+                            <p class="letter-people">GA Congressman Johnny Isakson</p>
+                            <p class="letter-people">GA Congressman Saxby Chamliss</p>
+                            <p class="letter-people">GA Representative Paul C. Broun (d.117)</p>
+                            <p class="letter-people">GA Representative Paul C. Broun (d.117)</p>
+                            <p class="letter-people">MD Representative Robert Townsend</p>
+                            <p class="letter-people">MD Representative Christopher Delane</p>
+                            <p class="letter-people">MD Representative Joseph Watson</p>
+                            <p class="letter-people">MD Representative Carla Torres</p>
+                            <p class="letter-people">MD Representative Richard Burke</p>
+                            <p class="letter-people">MD Representative James Carter</p>
+                        </div>
+                    </div>
+
+                    <div class="letter-active-container">
+                        <p class="letter-active-title">Most Active: <span class="letter-sort">Sort by name</span>
+                        </p>
+
+                        <div class="letter-active-list-container">
+                            <div class="row letter-active-row">
+                                <div class="col-xs-6">
+                                    <p class="letter-user">envision73</p>
+                                    <p class="letter-user">marktanner67</p>
+                                    <p class="letter-user">saladlover</p>
+                                    <p class="letter-user">spindlefret</p>
+                                    <p class="letter-user">oprahchai</p>
+                                    <p class="letter-user">bobosnow</p>
+                                    <p class="letter-user">troyave00</p>
+                                    <p class="letter-user">youngmellow</p>
+                                    <p class="letter-user">rickyrozay</p>
+                                    <p class="letter-user">orwellian</p>
+                                    <p class="letter-user">mcsnapper</p>
+                                    <p class="letter-user">rasskass2015</p>
+                                    <p class="letter-user">starchamber</p>
+                                    <p class="letter-user">bigchipper1000</p>
+                                    <p class="letter-user">charliebrown</p>
+                                    <p class="letter-user">capriconone</p>
+                                </div>
+                                <div class="col-xs-6 text-left">
+                                    <p class="letter-user-num">424</p>
+                                    <p class="letter-user-num">293</p>
+                                    <p class="letter-user-num">123</p>
+                                    <p class="letter-user-num">98</p>
+                                    <p class="letter-user-num">76</p>
+                                    <p class="letter-user-num">54</p>
+                                    <p class="letter-user-num">32</p>
+                                    <p class="letter-user-num">12</p>
+                                    <p class="letter-user-num">11</p>
+                                    <p class="letter-user-num">11</p>
+                                    <p class="letter-user-num">9</p>
+                                    <p class="letter-user-num">8</p>
+                                    <p class="letter-user-num">4</p>
+                                    <p class="letter-user-num">4</p>
+                                    <p class="letter-user-num">3</p>
+                                    <p class="letter-user-num">3</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="letter-blue-footer desktop">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-xs-1 text-center">
+                        <span class="fa-stack fa-2x letter-card-arrow-left letter-card-footer-arrow">
+                            <i class="fa fa-3x fa-circle fa-stack-2x letter-card-icon-circle"></i>
+                            <i class="fa fa-arrow-left fa-stack-1x letter-card-icon-arrow"></i>
+                        </span>
+                    </div>
+                    <div class="col-xs-10">
+
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <div class="letter-card-container">
+                                    <div class="card-fav-info close">
+                                        <p class="card-info-text">This author is in your favorites.
+                                            <br>Click the author's name to remove.</p>
+                                    </div>
+                                    <a href="#" class="letter-card-send">
+                                        <div class="letter-card-send-red-img"></div>
+                                    </a>
+                                    <p class="letter-card-title">Obamacare too expensive for the self-employed.</p>
+                                    <p class="letter-card-by">by<span class="letter-card-username">rightsaidfred</span><i class="fa fa-heart"></i>
+                                    </p>
+                                    <p class="letter-card-msg">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <span class="letter-card-read-more">read more</span>
+                                    </p>
+
+                                    <div class="row stats-row">
+                                        <div class="col-xs-3 text-center">
+                                            <img src="img/letter-logo.png" class="letter-logo">
+                                        </div>
+                                        <div class="col-xs-6 text-center">
+                                            <p class="letter-card-number-sent">1,122,170</p>
+                                            <p class="letter-card-number-text">Letters Sent</p>
+
+                                        </div>
+                                        <div class="col-xs-3 text-center">
+                                            <p class="letter-card-agreed"><span class="green">1,000,00</span>
+                                                <br>Agreed</p>
+                                            <p class="letter-card-opposed"><span class="red">122,170</span>
+                                                <br>Opposed</p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row buttons-row gutter-5">
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="letter-card-btn-agree">Agree<i class="fa fa-info-circle letter-info-agree"></i>
+                                            </p>
+                                            <div class="letter-agree-info close">
+                                                <p class="letter-info-text">Like this message?
+                                                    <br>Edit and Send your own version of this letter to your representatives!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="letter-card-btn-oppose">Oppose<i class="fa fa-info-circle letter-info-oppose"></i>
+                                            </p>
+                                            <div class="letter-oppose-info close">
+                                                <p class="letter-info-text">Dont like this message?
+                                                    <br>Write an opposing viewpoint!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="letter-card-btn-sponsor">Sponsor<i class="fa fa-info-circle letter-info-sponsor"></i>
+                                            </p>
+                                            <div class="letter-sponsor-info close">
+                                                <p class="letter-info-text">Sponsor this letter to let others send this letter to thier representatives for Free!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="letter-card-container">
+                                    <div class="card-fav-info close">
+                                        <p class="card-info-text">This author is in your favorites.
+                                            <br>Click the author's name to remove.</p>
+                                    </div>
+                                    <a href="#" class="letter-card-send">
+                                        <div class="letter-card-send-red-img"></div>
+                                    </a>
+                                    <p class="letter-card-title">Obamacare too expensive for the self-employed.</p>
+                                    <p class="letter-card-by">by<span class="letter-card-username">rightsaidfred</span><i class="fa fa-heart"></i>
+                                    </p>
+                                    <p class="letter-card-msg">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <span class="letter-card-read-more">read more</span>
+                                    </p>
+
+                                    <div class="row stats-row">
+                                        <div class="col-xs-3 text-center">
+                                            <img src="img/letter-logo.png" class="letter-logo">
+                                        </div>
+                                        <div class="col-xs-6 text-center">
+                                            <p class="letter-card-number-sent">1,122,170</p>
+                                            <p class="letter-card-number-text">Letters Sent</p>
+
+                                        </div>
+                                        <div class="col-xs-3 text-center">
+                                            <p class="letter-card-agreed"><span class="green">1,000,00</span>
+                                                <br>Agreed</p>
+                                            <p class="letter-card-opposed"><span class="red">122,170</span>
+                                                <br>Opposed</p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row buttons-row gutter-5">
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="letter-card-btn-agree">Agree<i class="fa fa-info-circle letter-info-agree"></i>
+                                            </p>
+                                            <div class="letter-agree-info close">
+                                                <p class="letter-info-text">Like this message?
+                                                    <br>Edit and Send your own version of this letter to your representatives!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="letter-card-btn-oppose">Oppose<i class="fa fa-info-circle letter-info-oppose"></i>
+                                            </p>
+                                            <div class="letter-oppose-info close">
+                                                <p class="letter-info-text">Dont like this message?
+                                                    <br>Write an opposing viewpoint!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="letter-card-btn-sponsor">Sponsor<i class="fa fa-info-circle letter-info-sponsor"></i>
+                                            </p>
+                                            <div class="letter-sponsor-info close">
+                                                <p class="letter-info-text">Sponsor this letter to let others send this letter to thier representatives for Free!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="letter-card-container">
+                                    <div class="card-fav-info close">
+                                        <p class="card-info-text">This author is in your favorites.
+                                            <br>Click the author's name to remove.</p>
+                                    </div>
+                                    <a href="#" class="letter-card-send">
+                                        <div class="letter-card-send-red-img"></div>
+                                    </a>
+                                    <p class="letter-card-title">Obamacare too expensive for the self-employed.</p>
+                                    <p class="letter-card-by">by<span class="letter-card-username">rightsaidfred</span><i class="fa fa-heart"></i>
+                                    </p>
+                                    <p class="letter-card-msg">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <span class="letter-card-read-more">read more</span>
+                                    </p>
+
+                                    <div class="row stats-row">
+                                        <div class="col-xs-3 text-center">
+                                            <img src="img/letter-logo.png" class="letter-logo">
+                                        </div>
+                                        <div class="col-xs-6 text-center">
+                                            <p class="letter-card-number-sent">1,122,170</p>
+                                            <p class="letter-card-number-text">Letters Sent</p>
+
+                                        </div>
+                                        <div class="col-xs-3 text-center">
+                                            <p class="letter-card-agreed"><span class="green">1,000,00</span>
+                                                <br>Agreed</p>
+                                            <p class="letter-card-opposed"><span class="red">122,170</span>
+                                                <br>Opposed</p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row buttons-row gutter-5">
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="letter-card-btn-agree">Agree<i class="fa fa-info-circle letter-info-agree"></i>
+                                            </p>
+                                            <div class="letter-agree-info close">
+                                                <p class="letter-info-text">Like this message?
+                                                    <br>Edit and Send your own version of this letter to your representatives!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="letter-card-btn-oppose">Oppose<i class="fa fa-info-circle letter-info-oppose"></i>
+                                            </p>
+                                            <div class="letter-oppose-info close">
+                                                <p class="letter-info-text">Dont like this message?
+                                                    <br>Write an opposing viewpoint!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="letter-card-btn-sponsor">Sponsor<i class="fa fa-info-circle letter-info-sponsor"></i>
+                                            </p>
+                                            <div class="letter-sponsor-info close">
+                                                <p class="letter-info-text">Sponsor this letter to let others send this letter to thier representatives for Free!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-xs-1 text-center">
+                        <span class="fa-stack fa-2x letter-card-arrow-right letter-card-footer-arrow">
+                            <i class="fa fa-3x fa-circle fa-stack-2x letter-card-icon-circle"></i>
+                            <i class="fa fa-arrow-right fa-stack-1x letter-card-icon-arrow"></i>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer desktop">
+
+            <div class="row">
+                <div class="col-xs-2 footer-col">
+                    <a href="#" class="footer-link">Hot Topics</a>
+                    <a href="#" class="footer-link">Compose a Letter</a>
+                    <a href="#" class="footer-link">Become a Sponsor</a>
+                </div>
+
+                <div class="col-xs-2 footer-col">
+                    <a href="#" class="footer-link">Tips & Tricks</a>
+                    <a href="#" class="footer-link">Say What?</a>
+                </div>
+
+                <div class="col-xs-3 footer-col">
+                    <a href="#" class="footer-link">Terms and Conditions</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                </div>
+
+                <div class="col-xs-3 footer-col text-right">
+                    <p class="footer-connect">Connect with us!</p>
+                    <i class="fa fa-2x fa-facebook-square"></i><i class="fa fa-2x fa-twitter-square"></i><i class="fa fa-2x fa-linkedin-square"></i>
+                </div>
+
+                <div class="col-xs-2 footer-col text-right">
+                    <a href="index.html"><img src="img/letter-logo.png">
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="footer-copyright">
+                © 2015 Letter Instead
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container mobile-footer mobile text-center">
+        <p class="footer-connect">Connect with us!</p>
+        <i class="fa fa-2x fa-facebook-square"></i><i class="fa fa-2x fa-twitter-square"></i><i class="fa fa-2x fa-linkedin-square"></i>
+    </div>
+
+
+</body>
+
+</html>

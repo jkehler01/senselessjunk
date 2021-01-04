@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+Made by: Haroon Khalid
+
+..######...#######..########.....###........######..########..##.....##.##....##..######..##.....##
+.##....##.##.....##.##.....##...##.##......##....##.##.....##.##.....##.###...##.##....##.##.....##
+.##.......##.....##.##.....##..##...##.....##.......##.....##.##.....##.####..##.##.......##.....##
+..######..##.....##.##.....##.##.....##....##.......########..##.....##.##.##.##.##.......#########
+.......##.##.....##.##.....##.#########....##.......##...##...##.....##.##..####.##.......##.....##
+.##....##.##.....##.##.....##.##.....##....##....##.##....##..##.....##.##...###.##....##.##.....##
+..######...#######..########..##.....##.....######..##.....##..#######..##....##..######..##.....##
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Instead</title>
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300,500,900,700italic,900italic,500italic,400italic,300italic,100,100italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
+    <script>
+    $(function() {
+
+        $(".letter-comp-text-box").disableSelection();
+
+        $(document.body).click(function(event) {
+            $(".letter-comp-edit-info").removeClass("open");
+            $(".letter-comp-edit-info").addClass("close");
+        });
+
+        $(document.body).on('click', '.letter-comp-edit-info', function(event) {
+            event.stopPropagation()
+        });
+
+        $(".edit-msg-info").click(function(event) {
+            event.stopPropagation();
+            if ($(".letter-comp-edit-info").hasClass("close")) {
+                $(".letter-comp-edit-info").removeClass("open");
+                $(".letter-comp-edit-info").addClass("close");
+                $(".letter-comp-edit-info").css({
+                    top: 120,
+                    right: 50
+                }).toggleClass("close open");
+            } else {
+                $(".letter-comp-edit-info").css({
+                    top: 120,
+                    right: 50
+                }).removeClass("open");
+                $(".letter-comp-edit-info").css({
+                    top: 120,
+                    right: 50
+                }).addClass("close");
+
+            }
+        });
+
+        $("#radio-use-address").click(function() {
+            $(".sidebar-add-address-container").slideUp();
+            $(".sidebar-addresses-container").slideDown();
+        });
+
+        $("#radio-add-new-address").click(function() {
+            $(".sidebar-addresses-container").slideUp();
+            $(".sidebar-add-address-container").slideDown();
+        });
+
+
+        $(".login-top-link, .m-m-login").click(function() {
+            $(".whitebg").show();
+            $(".mobile-menu-nav").slideToggle();
+            $(".login-window-container").show();
+        });
+
+        $(".login-window-content .fa-times").click(function() {
+            $(".whitebg, .login-window-container").hide();
+        });
+
+
+        $(".login-window-title i").click(function() {
+            $(".login-window-container").hide();
+        });
+
+        $(".whitebg").click(function() {
+            $(".whitebg").hide();
+            $(".login-window-container").hide();
+        });
+
+        $(".login-window-container").click(function(e) {
+            e.stopPropagation();
+            $(".whitebg").hide();
+            $(".login-window-container").hide();
+        });
+        $(".login-window-content").click(function(e) {
+            e.stopPropagation();
+        });
+
+
+    });
+    </script>
+</head>
+
+<body>
+    <div class="whitebg"></div>
+
+    <div class="mobile-menu mobile">
+        <div class="container ">
+            <div class="row">
+                <div class="col-xs-6 text-left">
+                    <a href="index.html"><img src="img/letter-instead-logo-notext.png" class="mobile-logo">
+                    </a>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <i class="fa fa-bars fa-2x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu-nav">
+            <div class="mobile-2">
+                <a href="#" class="mobile-menu-link mobile-1-link">Hot Topics</a>
+                <a href="#" class="mobile-menu-link-2 mobile-2-link">Compose a Letter</a>
+                <a href="#" class="mobile-menu-link mobile-3-link">Be a Sponsor</a>
+                <a href="#" class="mobile-menu-link-2 mobile-4-link">Tips & Tricks</a>
+                <a href="#" class="mobile-menu-link">Say What?!</a>
+                <a href="#" class="mobile-menu-link-2">Your Account</a>
+                <a href="#" class="mobile-menu-link">Full Site</a>
+                <a href="#" class="mobile-menu-link-2">Login</a>
+            </div>
+        </div>
+    </div>
+    <div class="container wrapper">
+        <div class="container-fluid desktop">
+            <div class="row">
+                <div class="col-xs-10 col-logo">
+                    <a href="index.html"><img src="img/letter-logo-header.png" class="logo letter-logo-header">
+                    </a>
+                    <img src="img/letter-instead-logo-header.png" class="logo">
+                </div>
+                <div class="col-xs-2 text-right col-sign-login">
+                    <a href="#" class="sign-up-top-link">Sign Up!</a>
+                    <a href="#" class="login-top-link">Login</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="nav-container">
+                    <ul>
+                        <li><a href="#">Hot Topics</a>
+                        </li>
+                        <li><a href="#" class="nav-active">Compose a Letter</a>
+                        </li>
+                        <li><a href="#">Be a Sponsor</a>
+                        </li>
+                        <li><a href="#">Tips & Tricks</a>
+                        </li>
+                        <li><a href="#">Say What?</a>
+                        </li>
+                        <li class="cart"><a href="#"><i class="fa fa-lg fa-shopping-cart"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+                        <div class="login-window-container text-center">
+            <div class="login-window">
+                <div class="login-window-content">
+                    <i class="fa fa-times fa-lg mobile"></i>
+                    <p class="login-window-blue-btn"><i class="fa fa-facebook-official"></i> Login with Facebook</p>
+                    <p class="login-window-blue-btn">Create a New Account</p>
+                    <div class="input-group">
+                        <div class="input-group-addon login-input">Email</div>
+                        <input type="text" class="form-control" id="exampleInputAmount">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon login-input">Password</div>
+                        <input type="text" class="form-control" id="exampleInputAmount">
+                    </div>
+                    <p class="login-window-green-btn">Login</p>
+                </div>
+            </div>
+        </div>
+        <div class="letter-comp-container">
+            <div class="row">
+                <div class="col-xs-8 col-letter-comp">
+                    <p class="letter-comp-review-title green-background">Review Your Letter</p>
+                    <div class="letter-comp-content">
+                        <p class="letter-send-title green-text">Agreed: Obamacare too expensive for the self-employed.</p>
+                        <p class="letter-comp-count pull-left">Character Count: <span class="letter-comp-count-left">475</span> of 500</p>
+                        <div class="pull-right">
+                            <p class="letter-comp-edit-btn">Edit</p>
+                            <div class="letter-comp-styling">
+                                <i class="fa fa-bold"></i><i class="fa fa-italic"></i><i class="fa fa-underline"></i>
+                            </div>
+                        </div>
+                        <div class="letter-comp-edit-info close">
+                            <p class="letter-comp-edit-msg">Free copies of this letter can only be sent as written. If you would like to edit this letter, please choose Agree instead of Send Free.</p>
+                        </div>
+                        <div class="letter-comp-text-box" contenteditable>
+                            <p class="letter-comp-set-text">
+                                My wife and I operate our own business. We have no employees. We do not have traditional heathcare. We pay out of pocket for all our medical bills and have one very high-deductible catastrophic policy to fall back on in case we are diagnosed with certain major illnesses. Our vehicles are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.My wife and I operate our own business. We have no employees. We do not have traditional heathcare. We pay out of pocket for all our medical bills and have one very high-deductible catastrophic policy to fall back on in case we are diagnosed with certain major illnesses.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                                <br>
+                                <br> are all paid for and our mortgage is well below the national average. Our only major expense in addition to our mortgage is the cost of tuition for our son to attend college. According to online estimators we will have to pay almost 10% of our gross income starting in 2014 for an Obamacare plan. This is not fair. We will be forced to pay almost 250% of what we are currently paying for health insurance. As a hard working, healthy American I find this unacceptable.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-letter-sidebar">
+                    <p class="letter-comp-sidebar-btn letter-comp-sidebar-btn-active letter-comp-sidebar-btn-no-margin">Provide Your Return Address</p>
+                    <div class="letter-comp-sidebar-info">
+                        <input type="radio" name="radiogroup" id="radio-use-address" class="sidebar-radio">
+                        <label for="radio-use-address" class="sidebar-text">Use an address I have on file.</label>
+                        <br>
+                        <div class="sidebar-addresses-container">
+                            <div class="sidebar-address">
+                                <input type="radio" name="radiogroup-a" id="radio-2" class="sidebar-radio">
+                                <label for="radio-1" class="sidebar-text">2014 Acorn Lane
+                                    <br>Dacula, GA 30019</label>
+                            </div>
+                            <div class="sidebar-address">
+                                <input type="radio" name="radiogroup-a" id="radio-2" class="sidebar-radio">
+                                <label for="radio-1" class="sidebar-text">2014 Acorn Lane
+                                    <br>Dacula, GA 30019</label>
+                            </div>
+                            <div class="sidebar-address">
+                                <input type="radio" name="radiogroup-a" id="radio-2" class="sidebar-radio">
+                                <label for="radio-1" class="sidebar-text">2014 Acorn Lane
+                                    <br>Dacula, GA 30019</label>
+                            </div>
+                            <div class="sidebar-address">
+                                <input type="radio" name="radiogroup-a" id="radio-2" class="sidebar-radio">
+                                <label for="radio-1" class="sidebar-text">2014 Acorn Lane
+                                    <br>Dacula, GA 30019</label>
+                            </div>
+                            <div class="sidebar-address">
+                                <input type="radio" name="radiogroup-a" id="radio-2" class="sidebar-radio">
+                                <label for="radio-1" class="sidebar-text">2014 Acorn Lane
+                                    <br>Dacula, GA 30019</label>
+                            </div>
+                            <div class="sidebar-address">
+                                <input type="radio" name="radiogroup-a" id="radio-1" class="sidebar-radio">
+                                <label for="radio-1" class="sidebar-text">22 Holbrook Drive
+                                    <br>Nashua, NH 03062</label>
+                            </div>
+                        </div>
+                        <input type="radio" name="radiogroup" id="radio-add-new-address" class="sidebar-radio">
+                        <label for="radio-add-new-address" class="sidebar-text">Add a new return address.</label>
+                        <div class="sidebar-add-address-container">
+                            <div class="row gutter-5">
+                                <div class="col-xs-12 gutter-5">
+                                    <input type="text" class="sidebar-street" placeholder="Street">
+                                </div>
+                                <div class="col-xs-4 gutter-5 col-sidebar-city">
+                                    <input type="text" class="sidebar-city" placeholder="City">
+                                </div>
+                                <div class="col-xs-3 gutter-5 col-sidebar-state">
+                                    <select name="state">
+                                        <option value="AL">AL</option>
+                                        <option value="AK">AK</option>
+                                        <option value="AZ">AZ</option>
+                                        <option value="AR">AR</option>
+                                        <option value="CA">CA</option>
+                                        <option value="CO">CO</option>
+                                        <option value="CT">CT</option>
+                                        <option value="DE">DE</option>
+                                        <option value="DC">DC</option>
+                                        <option value="FL">FL</option>
+                                        <option value="GA">GA</option>
+                                        <option value="HI">HI</option>
+                                        <option value="ID">ID</option>
+                                        <option value="IL">IL</option>
+                                        <option value="IN">IN</option>
+                                        <option value="IA">IA</option>
+                                        <option value="KS">KS</option>
+                                        <option value="KY">KY</option>
+                                        <option value="LA">LA</option>
+                                        <option value="ME">ME</option>
+                                        <option value="MD">MD</option>
+                                        <option value="MA">MA</option>
+                                        <option value="MI">MI</option>
+                                        <option value="MN">MN</option>
+                                        <option value="MS">MS</option>
+                                        <option value="MO">MO</option>
+                                        <option value="MT">MT</option>
+                                        <option value="NE">NE</option>
+                                        <option value="NV">NV</option>
+                                        <option value="NH">NH</option>
+                                        <option value="NJ">NJ</option>
+                                        <option value="NM">NM</option>
+                                        <option value="NY">NY</option>
+                                        <option value="NC">NC</option>
+                                        <option value="ND">ND</option>
+                                        <option value="OH">OH</option>
+                                        <option value="OK">OK</option>
+                                        <option value="OR">OR</option>
+                                        <option value="PA">PA</option>
+                                        <option value="RI">RI</option>
+                                        <option value="SC">SC</option>
+                                        <option value="SD">SD</option>
+                                        <option value="TN">TN</option>
+                                        <option value="TX">TX</option>
+                                        <option value="UT">UT</option>
+                                        <option value="VT">VT</option>
+                                        <option value="VA">VA</option>
+                                        <option value="WA">WA</option>
+                                        <option value="WV">WV</option>
+                                        <option value="WI">WI</option>
+                                        <option value="WY">WY</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-5 gutter-5 col-sidebar-zip">
+                                    <input type="text" class="sidebar-zip" placeholder="Zip">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="sidebar-done-btn">Done</p>
+                    </div>
+                    <p class="letter-comp-sidebar-btn">Recipient List</p>
+                    <p class="letter-comp-sidebar-btn">Sign and Send</p>
+                </div>
+            </div>
+        </div>
+        <div class="blue-footer desktop"></div>
+        <div class="footer desktop">
+            <div class="row">
+                <div class="col-xs-2 footer-col">
+                    <a href="#" class="footer-link">Hot Topics</a>
+                    <a href="#" class="footer-link">Compose a Letter</a>
+                    <a href="#" class="footer-link">Become a Sponsor</a>
+                </div>
+                <div class="col-xs-2 footer-col">
+                    <a href="#" class="footer-link">Tips & Tricks</a>
+                    <a href="#" class="footer-link">Say What?</a>
+                </div>
+                <div class="col-xs-3 footer-col">
+                    <a href="#" class="footer-link">Terms and Conditions</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                </div>
+                <div class="col-xs-3 footer-col text-right">
+                    <p class="footer-connect">Connect with us!</p>
+                    <i class="fa fa-2x fa-facebook-square"></i><i class="fa fa-2x fa-twitter-square"></i><i class="fa fa-2x fa-linkedin-square"></i>
+                </div>
+                <div class="col-xs-2 footer-col text-right">
+                    <a href="index.html"><img src="img/letter-logo.png">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                © 2015 Letter Instead
+            </div>
+        </div>
+    </div>
+    <div class="container mobile-footer mobile text-center">
+        <a href="#" class="footer-link">Hot Topics</a>
+        <a href="#" class="footer-link">Compose a Letter</a>
+        <a href="#" class="footer-link">Become a Sponsor</a>
+        <a href="#" class="footer-link">Tips & Tricks</a>
+        <a href="#" class="footer-link">Say What?</a>
+        <a href="#" class="footer-link">Terms and Conditions</a>
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <p class="footer-connect">Connect with us!</p>
+        <i class="fa fa-2x fa-facebook-square"></i><i class="fa fa-2x fa-twitter-square"></i><i class="fa fa-2x fa-linkedin-square"></i>
+    </div>
+</body>
+
+</html>

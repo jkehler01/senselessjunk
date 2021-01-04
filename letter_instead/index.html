@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+Made by: Haroon Khalid
+
+..######...#######..########.....###........######..########..##.....##.##....##..######..##.....##
+.##....##.##.....##.##.....##...##.##......##....##.##.....##.##.....##.###...##.##....##.##.....##
+.##.......##.....##.##.....##..##...##.....##.......##.....##.##.....##.####..##.##.......##.....##
+..######..##.....##.##.....##.##.....##....##.......########..##.....##.##.##.##.##.......#########
+.......##.##.....##.##.....##.#########....##.......##...##...##.....##.##..####.##.......##.....##
+.##....##.##.....##.##.....##.##.....##....##....##.##....##..##.....##.##...###.##....##.##.....##
+..######...#######..########..##.....##.....######..##.....##..#######..##....##..######..##.....##
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Instead</title>
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300,500,900,700italic,900italic,500italic,400italic,300italic,100,100italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
+    <script>
+    $(function() {
+        cashFlow = function(elem, from, to, duration, decimal) {
+            var magicObject;
+            if (typeof magicObject === 'undefined') {
+                magicObject = $('<div></div>').appendTo('body');
+            }
+            magicObject.css({
+                position: "fixed",
+                left: from
+            }).animate({
+                left: to
+            }, {
+                duration: duration,
+                step: function(currentLeft) {
+                    elem.html(Number(currentLeft).toFixed(decimal));
+                },
+                complete: function() {
+                    magicObject.remove();
+                }
+            });
+        };
+
+        cashFlow($('.test-num-1'), 0, 16231432, 3 * 1000, 0);
+        cashFlow($('.test-num-2'), 0, 12234143, 2 * 1000, 0);
+
+        window.setTimeout(function() {
+            $('.test-num-1').text('16,231,432');
+        }, 3050);
+
+        window.setTimeout(function() {
+            $('.test-num-2').text('12,234,143');
+        }, 2050);
+
+        $(document.body).click(function(event) {
+            $(".card-agree-info, .card-oppose-info, .card-sponsor-info, .card-fav-info, .card-sponsor-send").removeClass("open");
+            $(".card-agree-info, .card-oppose-info, .card-sponsor-info, .card-fav-info, .card-sponsor-send").addClass("close");
+        });
+
+
+        $(document.body).on('click', '.card-agree-info, .card-oppose-info, .card-sponsor-info, .card-fav-info', function(event) {
+            event.stopPropagation()
+        });
+
+        $(".info-agree").click(function(event) {
+            event.stopPropagation();
+            if ($(this).parents(".card-container").find(".card-agree-info").hasClass("close")) {
+                $(".card-agree-info, .card-oppose-info, .card-sponsor-info, .card-fav-info, .card-sponsor-send").removeClass("open");
+                $(".card-agree-info, .card-oppose-info, .card-sponsor-info, .card-fav-info, .card-sponsor-send").addClass("close");
+                $(this).parents(".card-container").find(".card-agree-info").css({
+                    top: 45,
+                    left: 0
+                }).toggleClass("close open");
+            } else {
+                $(this).parents(".card-container").find(".card-agree-info").css({
+                    top: 45,
+                    left: 0
+                }).removeClass("open");
+                $(this).parents(".card-container").find(".card-agree-info").css({
+                    top: 45,
+                    left: 0
+                }).addClass("close");
+
+            }
+        });
+
+        $(".info-oppose").click(function(event) {
+            event.stopPropagation();
+            if ($(this).parents(".card-container").find(".card-oppose-info").hasClass("close")) {
+                $(".card-agree-info, .card-oppose-info, .card-sponsor-info, .card-fav-info, .card-sponsor-send").removeClass("open");
+                $(".card-agree-info, .card-oppose-info, .card-sponsor-info, .card-fav-info, .card-sponsor-send").addClass("close");
+                $(this).parents(".card-container").find(".card-oppose-info").css({
+                    top: 45,
+                    left: 0
+                }).toggleClass("close open");
+            } else {
+                $(this).parents(".card-container").find(".card-oppose-info").css({
+                    top: 45,
+                    left: 0
+                }).removeClass("open");
+                $(this).parents(".card-container").find(".card-oppose-info").css({
+                    top: 45,
+                    left: 0
+                }).addClass("close");
+
+            }
+        });
+
+        $(".info-sponsor").click(function(event) {
+            event.stopPropagation();
+            if ($(this).parents(".card-container").find(".card-sponsor-info").hasClass("close")) {
+                $(".card-agree-info, .card-oppose-info, .card-sponsor-info, .card-fav-info, .card-sponsor-send").removeClass("open");
+                $(".card-agree-info, .card-oppose-info, .card-sponsor-info, .card-fav-info, .card-sponsor-send").addClass("close");
+                $(this).parents(".card-container").find(".card-sponsor-info").css({
+                    top: 45,
+                    left: 0
+                }).toggleClass("close open");
+            } else {
+                $(this).parents(".card-container").find(".card-sponsor-info").css({
+                    top: 45,
+                    left: 0
+                }).removeClass("open");
+                $(this).parents(".card-container").find(".card-sponsor-info").css({
+                    top: 45,
+                    left: 0
+                }).addClass("close");
+
+            }
+        });
+
+        $(".card-send-grey-img").click(function(event) {
+            event.stopPropagation();
+            if ($(this).parents(".card-container").find(".card-sponsor-send").hasClass("close")) {
+                $(".card-agree-info, .card-oppose-info, .card-sponsor-info, .card-fav-info, .card-sponsor-send").removeClass("open");
+                $(".card-agree-info, .card-oppose-info, .card-sponsor-info, .card-fav-info, .card-sponsor-send").addClass("close");
+
+                var win_w = $(window).width();
+
+                if (win_w > 792) {
+
+                    $(this).parents(".card-container").find(".card-sponsor-send").css({
+                        top: 80,
+                        right: -75
+                    }).toggleClass("close open");
+
+                } else {
+
+                    $(this).parents(".card-container").find(".card-sponsor-send").css({
+                        top: 80,
+                        right: 10
+                    }).toggleClass("close open");
+
+                }
+
+            } else {
+
+                if (win_w > 792) {
+
+                    $(this).parents(".card-container").find(".card-sponsor-send").css({
+                        top: 80,
+                        right: -75
+                    }).removeClass("open");
+                    $(this).parents(".card-container").find(".card-sponsor-send").css({
+                        top: 80,
+                        right: -75
+                    }).addClass("close");
+
+                } else {
+
+                    $(this).parents(".card-container").find(".card-sponsor-send").css({
+                        top: 80,
+                        right: -75
+                    }).removeClass("open");
+                    $(this).parents(".card-container").find(".card-sponsor-send").css({
+                        top: 80,
+                        right: 10
+                    }).addClass("close");
+
+                }
+
+            }
+        });
+
+        $(".card-container .fa-heart").click(function(event) {
+            event.stopPropagation();
+            if ($(this).parents(".card-container").find(".card-fav-info").hasClass("close")) {
+                $(".card-agree-info, .card-oppose-info, .card-sponsor-info, .card-fav-info, .card-sponsor-send").removeClass("open");
+                $(".card-agree-info, .card-oppose-info, .card-sponsor-info, .card-fav-info, .card-sponsor-send").addClass("close");
+
+                var win_w = $(window).width();
+
+                if (win_w > 792) {
+
+                    $(this).parents(".card-container").find(".card-fav-info").css({
+                        top: 100,
+                        left: 80
+                    }).toggleClass("close open");
+
+                } else {
+
+                    $(this).parents(".card-container").find(".card-fav-info").css({
+                        top: 120,
+                        left: 30
+                    }).toggleClass("close open");
+
+                }
+
+            } else {
+
+                if (win_w > 792) {
+
+                    $(this).parents(".card-container").find(".card-fav-info").css({
+                        top: 100,
+                        left: 80
+                    }).removeClass("open");
+                    $(this).parents(".card-container").find(".card-fav-info").css({
+                        top: 100,
+                        left: 80
+                    }).addClass("close");
+
+                } else {
+
+                }
+                $(this).parents(".card-container").find(".card-fav-info").css({
+                    top: 120,
+                    left: 30
+                }).removeClass("open");
+                $(this).parents(".card-container").find(".card-fav-info").css({
+                    top: 120,
+                    left: 30
+                }).addClass("close");
+
+            }
+        });
+
+        $(".card-agree-info, .card-oppose-info, .card-sponsor-info, .card-fav-info, .card-sponsor-send").click(function() {
+            $(this).removeClass("open");
+            $(this).addClass("close");
+        });
+
+        $(".mobile-menu i").click(function() {
+            $(".mobile-menu-nav").slideToggle();
+        });
+
+        $(".mobile-menu-link").click(function() {
+            $(".mobile-menu-nav").slideToggle();
+        });
+
+
+        $(".change-filters").click(function() {
+            $(".change-filters-container").toggleClass("close-filters open-filters");
+            if ( $(".change-filters-container").hasClass( "close-filters" ) ) {
+                $(this).text("Change Filters");
+            } else {
+                $(this).text("Hide Filters");
+            }
+        });
+
+        $(".hot-topics-hide").click(function() {
+            $(".hot-topics-msg, .hot-topics-data, .mobile-filters").hide();
+            $(".hot-topics-view").addClass("mobile");
+            $(".hot-topics-view").show();
+            $(".hot-topics-hide").hide();
+        });
+
+        $('.change-filters-container input').on('change', function() {
+            $('.change-filters-container input').not(this).prop('checked', false);
+        });
+
+
+
+                $(".login-top-link, .m-m-login").click(function() {
+            $(".whitebg").show();
+            $(".mobile-menu-nav").slideToggle();
+            $(".login-window-container").show();
+        });
+
+        $(".login-window-content .fa-times").click(function() {
+            $(".whitebg, .login-window-container").hide();
+        });
+
+
+        $(".login-window-title i").click(function() {
+            $(".login-window-container").hide();
+        });
+
+        $(".whitebg").click(function() {
+            $(".whitebg").hide();
+            $(".login-window-container").hide();
+        });
+
+        $(".login-window-container").click(function(e) {
+            e.stopPropagation();
+            $(".whitebg").hide();
+            $(".login-window-container").hide();
+        });
+        $(".login-window-content").click(function(e) {
+            e.stopPropagation();
+        });
+
+    });
+    </script>
+</head>
+
+<body>
+    <div class="whitebg"></div>
+
+    <div class="preload-container">
+        <div class="preload-1"></div>
+        <div class="preload-2"></div>
+        <div class="preload-3"></div>
+        <div class="preload-4"></div>
+    </div>
+    <div class="mobile-menu mobile">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 text-left">
+                    <a href="index.html"><img src="img/letter-instead-logo-notext.png" class="mobile-logo">
+                    </a>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <i class="fa fa-bars fa-2x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu-nav">
+            <div class="mobile-2">
+                <a href="#" class="mobile-menu-link mobile-1-link">Hot Topics</a>
+                <a href="#" class="mobile-menu-link-2 mobile-2-link">Compose a Letter</a>
+                <a href="#" class="mobile-menu-link mobile-3-link">Be a Sponsor</a>
+                <a href="#" class="mobile-menu-link-2 mobile-4-link">Tips & Tricks</a>
+                <a href="#" class="mobile-menu-link">Say What?!</a>
+                <a href="#" class="mobile-menu-link-2">Your Account</a>
+                <a href="#" class="mobile-menu-link">Full Site</a>
+                <a href="#" class="mobile-menu-link-2">Login</a>
+            </div>
+        </div>
+    </div>
+    <div class="container wrapper">
+        <div class="container-fluid">
+            <div class="row desktop">
+                <div class="col-xs-10 col-logo">
+                    <a href="index.html"><img src="img/letter-logo-header.png" class="logo letter-logo-header">
+                    </a>
+                    <img src="img/letter-instead-logo-header.png" class="logo">
+                </div>
+                <div class="col-xs-2 text-right col-sign-login">
+                    <a href="#" class="sign-up-top-link">Sign Up!</a>
+                    <a href="#" class="login-top-link">Login</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid nav-container">
+            <div class="row">
+                <nav class="nav-container">
+                    <ul>
+                        <li><a href="#" class="nav-active">Hot Topics</a>
+                        </li>
+                        <li><a href="#">Compose a Letter</a>
+                        </li>
+                        <li><a href="#">Be a Sponsor</a>
+                        </li>
+                        <li><a href="#">Tips & Tricks</a>
+                        </li>
+                        <li><a href="#">Say What?</a>
+                        </li>
+                        <li class="cart"><a href="#"><i class="fa fa-lg fa-shopping-cart"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="grey-bg">
+            <div class="container-fluid home-header-bar">
+                <div class="row">
+                    <div class="col-xs-6 col-hot-topics">
+                        <p class="hot-topics">Hot Topics!</p>
+                        <p class="hot-topics-msg desktop">Displaying 1,453 Letters that had Activity in the Past 48 Hours</p>
+                    </div>
+                    <div class="col-xs-6 text-right col-hot-topics hot-topics-data">
+                        <p class="hot-topics-number test-num-1">16,231,432</p>
+                        <p class="hot-topics-number-text">Letters Sent</p>
+                        <p class="hot-topics-number test-num-2">12,234,143</p>
+                        <p class="hot-topics-number-text">People Heard</p>
+                        <p class="hot-topics-msg mobile">Displaying 1,453 Letters that had Activity in the Past 48 Hours</p>
+                        <p class="change-filters mobile">Change Filters</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid white-background">
+                <div class="change-filters-container mobile close-filters">
+                    <p class="side-options-letters">Show me letters from</p>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <label class="side-options-checkbox">
+                                <input type="checkbox"> Last 48 Hours</label>
+                            <label class="side-options-checkbox">
+                                <input type="checkbox"> Last 24 Hours</label>
+                            <label class="side-options-checkbox">
+                                <input type="checkbox"> Last Week</label>
+                        </div>
+                        <div class="col-xs-6">
+                            <label class="side-options-checkbox">
+                                <input type="checkbox"> Last Month</label>
+                            <label class="side-options-checkbox">
+                                <input type="checkbox"> Last Year</label>
+                            <label class="side-options-checkbox">
+                                <input type="checkbox"> All Time</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="compose-container mobile">
+                <a href="#" class="compose-btn">Compose</a>
+            </div>
+            <div class="input-group search-bar mobile">
+                <input autocomplete="off" class="form-control" id="query" name="search" placeholder="Search" type="text" value="">
+                <span class="input-group-btn">
+                    <button class="btn search-btn" type="submit">
+                    <i class="fa fa-search"></i>
+                    </button>
+                    </span>
+            </div>
+        </div>
+                        <div class="login-window-container text-center">
+            <div class="login-window">
+                <div class="login-window-content">
+                    <i class="fa fa-times fa-lg mobile"></i>
+                    <p class="login-window-blue-btn"><i class="fa fa-facebook-official"></i> Login with Facebook</p>
+                    <p class="login-window-blue-btn">Create a New Account</p>
+                    <div class="input-group">
+                        <div class="input-group-addon login-input">Email</div>
+                        <input type="text" class="form-control" id="exampleInputAmount">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon login-input">Password</div>
+                        <input type="text" class="form-control" id="exampleInputAmount">
+                    </div>
+                    <p class="login-window-green-btn">Login</p>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid page-container">
+            <div class="row">
+                <div class="col-xs-9 col-card-containers-parent">
+                    <div class="row">
+                        <div class="col-xs-6 col-card-containers">
+                            <div class="card-container">
+                                <div class="card-fav-info close">
+                                    <p class="card-info-text">This author is in your favorites.
+                                        <br>Click the author's name to remove.</p>
+                                </div>
+                                <a href="#" class="card-send">
+                                    <div class="card-send-red-img"></div>
+                                </a>
+                                <p class="card-title">Obamacare too expensive for the self-employed.</p>
+                                <p class="card-by">by<span class="card-username">rightsaidfred</span><i class="fa fa-heart"></i>
+                                </p>
+                                <p class="card-msg desktop">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi <span class="card-read-more">read more</span>
+                                    <p class="card-msg mobile">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque <span class="card-read-more">read more</span>
+                                    </p>
+                                    <div class="row stats-row">
+                                        <div class="col-xs-3 text-center">
+                                            <img src="img/letter-logo.png" class="letter-logo">
+                                        </div>
+                                        <div class="col-xs-6 col-card-number-sent text-center">
+                                            <p class="card-number-sent">1,122,170</p>
+                                            <p class="card-number-text">Letters Sent</p>
+                                        </div>
+                                        <div class="col-xs-3 text-center">
+                                            <p class="card-agreed"><span class="green">1,000,00</span>
+                                                <br>Agreed</p>
+                                            <p class="card-opposed"><span class="red">122,170</span>
+                                                <br>Opposed</p>
+                                        </div>
+                                    </div>
+                                    <div class="row buttons-row gutter-5">
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="card-btn-agree">Agree<i class="fa fa-info-circle info-agree"></i>
+                                            </p>
+                                            <div class="card-agree-info close">
+                                                <p class="card-info-text">Like this message?
+                                                    <br>Edit and Send your own version of this letter to your representatives!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="card-btn-oppose">Oppose<i class="fa fa-info-circle info-oppose"></i>
+                                            </p>
+                                            <div class="card-oppose-info close">
+                                                <p class="card-info-text">Dont like this message?
+                                                    <br>Write an opposing viewpoint!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="card-btn-sponsor">Sponsor<i class="fa fa-info-circle info-sponsor"></i>
+                                            </p>
+                                            <div class="card-sponsor-info close">
+                                                <p class="card-info-text">Sponsor this letter to let others send this letter to thier representatives for Free!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="card-container">
+                                <div class="card-fav-info close">
+                                    <p class="card-info-text">This author is in your favorites.
+                                        <br>Click the author's name to remove.</p>
+                                </div>
+                                <a href="#" class="card-send">
+                                    <div class="card-send-red-img"></div>
+                                </a>
+                                <p class="card-title">Obamacare too expensive for the self-employed.</p>
+                                <p class="card-by">by<span class="card-username">rightsaidfred</span><i class="fa fa-heart"></i>
+                                </p>
+                                <p class="card-msg desktop">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi <span class="card-read-more">read more</span>
+                                    <p class="card-msg mobile">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque <span class="card-read-more">read more</span>
+                                    </p>
+                                    <div class="row stats-row">
+                                        <div class="col-xs-3 text-center">
+                                            <img src="img/letter-logo.png" class="letter-logo">
+                                        </div>
+                                        <div class="col-xs-6 col-card-number-sent text-center">
+                                            <p class="card-number-sent">1,122,170</p>
+                                            <p class="card-number-text">Letters Sent</p>
+                                        </div>
+                                        <div class="col-xs-3 text-center">
+                                            <p class="card-agreed"><span class="green">1,000,00</span>
+                                                <br>Agreed</p>
+                                            <p class="card-opposed"><span class="red">122,170</span>
+                                                <br>Opposed</p>
+                                        </div>
+                                    </div>
+                                    <div class="row buttons-row gutter-5">
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="card-btn-agree">Agree<i class="fa fa-info-circle info-agree"></i>
+                                            </p>
+                                            <div class="card-agree-info close">
+                                                <p class="card-info-text">Like this message?
+                                                    <br>Edit and Send your own version of this letter to your representatives!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="card-btn-oppose">Oppose<i class="fa fa-info-circle info-oppose"></i>
+                                            </p>
+                                            <div class="card-oppose-info close">
+                                                <p class="card-info-text">Dont like this message?
+                                                    <br>Write an opposing viewpoint!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="card-btn-sponsor">Sponsor<i class="fa fa-info-circle info-sponsor"></i>
+                                            </p>
+                                            <div class="card-sponsor-info close">
+                                                <p class="card-info-text">Sponsor this letter to let others send this letter to thier representatives for Free!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="card-container">
+                                <div class="card-fav-info close">
+                                    <p class="card-info-text">This author is in your favorites.
+                                        <br>Click the author's name to remove.</p>
+                                </div>
+                                <a href="#" class="card-send">
+                                    <div class="card-send-red-img"></div>
+                                </a>
+                                <p class="card-title">Obamacare too expensive for the self-employed.</p>
+                                <p class="card-by">by<span class="card-username">rightsaidfred</span><i class="fa fa-heart"></i>
+                                </p>
+                                <p class="card-msg desktop">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi <span class="card-read-more">read more</span>
+                                    <p class="card-msg mobile">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque <span class="card-read-more">read more</span>
+                                    </p>
+                                    <div class="row stats-row">
+                                        <div class="col-xs-3 text-center">
+                                            <img src="img/letter-logo.png" class="letter-logo">
+                                        </div>
+                                        <div class="col-xs-6 col-card-number-sent text-center">
+                                            <p class="card-number-sent">1,122,170</p>
+                                            <p class="card-number-text">Letters Sent</p>
+                                        </div>
+                                        <div class="col-xs-3 text-center">
+                                            <p class="card-agreed"><span class="green">1,000,00</span>
+                                                <br>Agreed</p>
+                                            <p class="card-opposed"><span class="red">122,170</span>
+                                                <br>Opposed</p>
+                                        </div>
+                                    </div>
+                                    <div class="row buttons-row gutter-5">
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="card-btn-agree">Agree<i class="fa fa-info-circle info-agree"></i>
+                                            </p>
+                                            <div class="card-agree-info close">
+                                                <p class="card-info-text">Like this message?
+                                                    <br>Edit and Send your own version of this letter to your representatives!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="card-btn-oppose">Oppose<i class="fa fa-info-circle info-oppose"></i>
+                                            </p>
+                                            <div class="card-oppose-info close">
+                                                <p class="card-info-text">Dont like this message?
+                                                    <br>Write an opposing viewpoint!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="card-btn-sponsor">Sponsor<i class="fa fa-info-circle info-sponsor"></i>
+                                            </p>
+                                            <div class="card-sponsor-info close">
+                                                <p class="card-info-text">Sponsor this letter to let others send this letter to thier representatives for Free!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-card-containers">
+                            <div class="card-container">
+                                <div class="card-fav-info close">
+                                    <p class="card-info-text">This author is in your favorites.
+                                        <br>Click the author's name to remove.</p>
+                                </div>
+                                <a href="javascript:void(0);" class="card-send">
+                                    <div class="card-send-grey-img"></div>
+                                </a>
+                                <p class="card-title">Obamacare too expensive for the self-employed.</p>
+                                <p class="card-by">by<span class="card-username">rightsaidfred</span><i class="fa fa-heart"></i>
+                                </p>
+                                <p class="card-msg desktop">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi <span class="card-read-more">read more</span>
+                                    <p class="card-msg mobile">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque <span class="card-read-more">read more</span>
+                                    </p>
+                                    <div class="row stats-row">
+                                        <div class="col-xs-3 text-center">
+                                            <img src="img/letter-logo.png" class="letter-logo">
+                                        </div>
+                                        <div class="col-xs-6 col-card-number-sent text-center">
+                                            <p class="card-number-sent">1,122,170</p>
+                                            <p class="card-number-text">Letters Sent</p>
+                                        </div>
+                                        <div class="col-xs-3 text-center">
+                                            <p class="card-agreed"><span class="green">1,000,00</span>
+                                                <br>Agreed</p>
+                                            <p class="card-opposed"><span class="red">122,170</span>
+                                                <br>Opposed</p>
+                                        </div>
+                                    </div>
+                                    <div class="row buttons-row gutter-5">
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="card-btn-agree">Agree<i class="fa fa-info-circle info-agree"></i>
+                                            </p>
+                                            <div class="card-agree-info close">
+                                                <p class="card-info-text">Like this message?
+                                                    <br>Edit and Send your own version of this letter to your representatives!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="card-btn-oppose">Oppose<i class="fa fa-info-circle info-oppose"></i>
+                                            </p>
+                                            <div class="card-oppose-info close">
+                                                <p class="card-info-text">Dont like this message?
+                                                    <br>Write an opposing viewpoint!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="card-btn-sponsor">Sponsor<i class="fa fa-info-circle info-sponsor"></i>
+                                            </p>
+                                            <div class="card-sponsor-info close">
+                                                <p class="card-info-text">Sponsor this letter to let others send this letter to thier representatives for Free!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-sponsor-send close">
+                                        <p class="card-info-text">This letter needs sponsors!</p>
+                                    </div>
+                            </div>
+                            <div class="card-container">
+                                <div class="card-fav-info close">
+                                    <p class="card-info-text">This author is in your favorites.
+                                        <br>Click the author's name to remove.</p>
+                                </div>
+                                <a href="#" class="card-send">
+                                    <div class="card-send-red-img"></div>
+                                </a>
+                                <p class="card-title">Obamacare too expensive for the self-employed.</p>
+                                <p class="card-by">by<span class="card-username">rightsaidfred</span><i class="fa fa-heart"></i>
+                                </p>
+                                <p class="card-msg desktop">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi <span class="card-read-more">read more</span>
+                                    <p class="card-msg mobile">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque <span class="card-read-more">read more</span>
+                                    </p>
+                                    <div class="row stats-row">
+                                        <div class="col-xs-3 text-center">
+                                            <img src="img/letter-logo.png" class="letter-logo">
+                                        </div>
+                                        <div class="col-xs-6 col-card-number-sent text-center">
+                                            <p class="card-number-sent">1,122,170</p>
+                                            <p class="card-number-text">Letters Sent</p>
+                                        </div>
+                                        <div class="col-xs-3 text-center">
+                                            <p class="card-agreed"><span class="green">1,000,00</span>
+                                                <br>Agreed</p>
+                                            <p class="card-opposed"><span class="red">122,170</span>
+                                                <br>Opposed</p>
+                                        </div>
+                                    </div>
+                                    <div class="row buttons-row gutter-5">
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="card-btn-agree">Agree<i class="fa fa-info-circle info-agree"></i>
+                                            </p>
+                                            <div class="card-agree-info close">
+                                                <p class="card-info-text">Like this message?
+                                                    <br>Edit and Send your own version of this letter to your representatives!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="card-btn-oppose">Oppose<i class="fa fa-info-circle info-oppose"></i>
+                                            </p>
+                                            <div class="card-oppose-info close">
+                                                <p class="card-info-text">Dont like this message?
+                                                    <br>Write an opposing viewpoint!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="card-btn-sponsor">Sponsor<i class="fa fa-info-circle info-sponsor"></i>
+                                            </p>
+                                            <div class="card-sponsor-info close">
+                                                <p class="card-info-text">Sponsor this letter to let others send this letter to thier representatives for Free!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="card-container">
+                                <div class="card-fav-info close">
+                                    <p class="card-info-text">This author is in your favorites.
+                                        <br>Click the author's name to remove.</p>
+                                </div>
+                                <a href="#" class="card-send">
+                                    <div class="card-send-red-img"></div>
+                                </a>
+                                <p class="card-title">Obamacare too expensive for the self-employed.</p>
+                                <p class="card-by">by<span class="card-username">rightsaidfred</span><i class="fa fa-heart"></i>
+                                </p>
+                                <p class="card-msg desktop">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi <span class="card-read-more">read more</span>
+                                    <p class="card-msg mobile">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque <span class="card-read-more">read more</span>
+                                    </p>
+                                    <div class="row stats-row">
+                                        <div class="col-xs-3 text-center">
+                                            <img src="img/letter-logo.png" class="letter-logo">
+                                        </div>
+                                        <div class="col-xs-6 col-card-number-sent text-center">
+                                            <p class="card-number-sent">1,122,170</p>
+                                            <p class="card-number-text">Letters Sent</p>
+                                        </div>
+                                        <div class="col-xs-3 text-center">
+                                            <p class="card-agreed"><span class="green">1,000,00</span>
+                                                <br>Agreed</p>
+                                            <p class="card-opposed"><span class="red">122,170</span>
+                                                <br>Opposed</p>
+                                        </div>
+                                    </div>
+                                    <div class="row buttons-row gutter-5">
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="card-btn-agree">Agree<i class="fa fa-info-circle info-agree"></i>
+                                            </p>
+                                            <div class="card-agree-info close">
+                                                <p class="card-info-text">Like this message?
+                                                    <br>Edit and Send your own version of this letter to your representatives!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="card-btn-oppose">Oppose<i class="fa fa-info-circle info-oppose"></i>
+                                            </p>
+                                            <div class="card-oppose-info close">
+                                                <p class="card-info-text">Dont like this message?
+                                                    <br>Write an opposing viewpoint!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 gutter-5">
+                                            <p class="card-btn-sponsor">Sponsor<i class="fa fa-info-circle info-sponsor"></i>
+                                            </p>
+                                            <div class="card-sponsor-info close">
+                                                <p class="card-info-text">Sponsor this letter to let others send this letter to thier representatives for Free!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 col-side-options">
+                    <div class="side-options-container">
+                        <div class="side-options-top-container">
+                            <a href="#" class="compose-btn">Compose</a>
+                            <div class="input-group search-bar">
+                                <input autocomplete="off" class="form-control" id="query" name="search" placeholder="Search" type="text" value="">
+                                <span class="input-group-btn">
+                    <button class="btn search-btn" type="submit">
+                    <i class="fa fa-search"></i>
+                    </button>
+                    </span>
+                            </div>
+                            <p class="side-options-letters">Show me letters from</p>
+                            <label class="side-options-checkbox">
+                                <input type="checkbox"> Last 48 Hours</label>
+                            <label class="side-options-checkbox">
+                                <input type="checkbox"> Last 24 Hours</label>
+                            <label class="side-options-checkbox">
+                                <input type="checkbox"> Last Week</label>
+                            <label class="side-options-checkbox">
+                                <input type="checkbox"> Last Month</label>
+                            <label class="side-options-checkbox">
+                                <input type="checkbox"> Last Year</label>
+                            <label class="side-options-checkbox">
+                                <input type="checkbox"> All Time</label>
+                        </div>
+                        <div class="promo">
+                            promo
+                            <br>ad
+                            <br>here
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="blue-footer desktop"></div>
+        <div class="footer desktop">
+            <div class="row">
+                <div class="col-xs-2 footer-col">
+                    <a href="#" class="footer-link">Hot Topics</a>
+                    <a href="#" class="footer-link">Compose a Letter</a>
+                    <a href="#" class="footer-link">Become a Sponsor</a>
+                </div>
+                <div class="col-xs-2 footer-col">
+                    <a href="#" class="footer-link">Tips & Tricks</a>
+                    <a href="#" class="footer-link">Say What?</a>
+                </div>
+                <div class="col-xs-3 footer-col">
+                    <a href="#" class="footer-link">Terms and Conditions</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                </div>
+                <div class="col-xs-3 footer-col text-right">
+                    <p class="footer-connect">Connect with us!</p>
+                    <i class="fa fa-2x fa-facebook-square"></i><i class="fa fa-2x fa-twitter-square"></i><i class="fa fa-2x fa-linkedin-square"></i>
+                </div>
+                <div class="col-xs-2 footer-col text-right">
+                    <a href="index.html"><img src="img/letter-logo.png">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                © 2015 Letter Instead
+            </div>
+        </div>
+    </div>
+    <div class="container mobile-footer mobile text-center">
+        <a href="#" class="footer-link">Hot Topics</a>
+        <a href="#" class="footer-link">Compose a Letter</a>
+        <a href="#" class="footer-link">Become a Sponsor</a>
+        <a href="#" class="footer-link">Tips & Tricks</a>
+        <a href="#" class="footer-link">Say What?</a>
+        <a href="#" class="footer-link">Terms and Conditions</a>
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <p class="footer-connect">Connect with us!</p>
+        <i class="fa fa-2x fa-facebook-square"></i><i class="fa fa-2x fa-twitter-square"></i><i class="fa fa-2x fa-linkedin-square"></i>
+    </div>
+</body>
+
+</html>
